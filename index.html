@@ -340,7 +340,7 @@
     </div>
   </footer>
 
-  <!-- Interactive Demo Script for Landing Page Hero -->
+  <!-- Interactive Demo Script & Auth Gating for Landing Page -->
   <script>
     (function () {
       let score = 0;
@@ -375,8 +375,45 @@
         }
       }
 
-      if (phoneBtn) phoneBtn.addEventListener('click', triggerDemoTap);
-      if (tabletRunBtn) tabletRunBtn.addEventListener('click', triggerDemoTap);
+      function requireAuth(e, destUrl = null) {
+        if (!window.AuthClient || !window.AuthClient.isAuthenticated()) {
+          if (e) {
+            e.preventDefault();
+            e.stopPropagation();
+          }
+          window.AuthClient.openModal('signup');
+          return false;
+        }
+        if (destUrl) {
+          window.location.href = destUrl;
+        }
+        return true;
+      }
+
+      // Gate all interactive action buttons and starter template links
+      document.querySelectorAll(
+        '.btn-get-started-nav, .btn-start-building, .btn-explore-templates, a[href="dashboard.html"], a[href="editor.html"]'
+      ).forEach(el => {
+        el.addEventListener('click', (e) => {
+          const dest = el.getAttribute('href');
+          requireAuth(e, dest);
+        });
+      });
+
+      // Gate interactive demo widgets
+      if (phoneBtn) {
+        phoneBtn.addEventListener('click', (e) => {
+          if (!requireAuth(e)) return;
+          triggerDemoTap();
+        });
+      }
+
+      if (tabletRunBtn) {
+        tabletRunBtn.addEventListener('click', (e) => {
+          if (!requireAuth(e)) return;
+          triggerDemoTap();
+        });
+      }
     })();
   </script>
   <script src="js/auth.js"></script>

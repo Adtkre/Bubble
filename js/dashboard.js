@@ -15,38 +15,26 @@
     }
 
     init() {
+      if (!this.checkAuth()) return;
       this.loadProjects();
       this.setupEventListeners();
       this.render();
     }
 
+    checkAuth() {
+      const guard = document.getElementById('dashboard-auth-guard');
+      const isAuthed = window.AuthClient && window.AuthClient.isAuthenticated();
+      if (!isAuthed) {
+        if (guard) guard.style.display = 'flex';
+        return false;
+      }
+      if (guard) guard.style.display = 'none';
+      return true;
+    }
+
     loadProjects() {
       this.projects = window.BubbleStorage.getAllProjects();
-
-      // If user has zero projects, create the initial sample Flutter apps (Counter & Hello World)
-      if (this.projects.length === 0) {
-        const counterTutorial = window.BubbleTutorials.getCounterApp();
-        const p1 = {
-          id: window.BubbleUtils.generateId('app'),
-          name: 'Flutter Counter App',
-          createdAt: new Date().toISOString(),
-          updatedAt: new Date().toISOString(),
-          blocks: window.BubbleUtils.deepClone(counterTutorial.blocks)
-        };
-        window.BubbleStorage.saveProject(p1);
-
-        const hwTutorial = window.BubbleTutorials.getHelloWorld();
-        const p2 = {
-          id: window.BubbleUtils.generateId('app'),
-          name: 'Hello World App',
-          createdAt: new Date().toISOString(),
-          updatedAt: new Date().toISOString(),
-          blocks: window.BubbleUtils.deepClone(hwTutorial.blocks)
-        };
-        window.BubbleStorage.saveProject(p2);
-
-        this.projects = window.BubbleStorage.getAllProjects();
-      }
+      // Starts strictly at 0 if user hasn't created any apps yet
     }
 
     setupEventListeners() {
@@ -434,5 +422,15 @@
     const dashboard = new BubbleDashboard();
     dashboard.init();
     window.currentBubbleDashboard = dashboard;
+
+    window.addEventListener('bubble:auth-changed', () => {
+      dashboard.init();
+    });
+
+    document.getElementById('btn-guard-open-login')?.addEventListener('click', () => {
+      if (window.AuthClient) {
+        window.AuthClient.openModal('login');
+      }
+    });
   });
 })(window);
