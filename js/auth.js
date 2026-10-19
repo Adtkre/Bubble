@@ -52,7 +52,13 @@
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ name, email, password })
         });
-        const data = await res.json();
+        const text = await res.text();
+        let data;
+        try {
+          data = JSON.parse(text);
+        } catch (e) {
+          data = { error: 'Server temporarily unavailable. Please try again.' };
+        }
         if (!res.ok) {
           throw new Error(data.error || 'Failed to sign up.');
         }
@@ -70,7 +76,13 @@
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ email, password })
         });
-        const data = await res.json();
+        const text = await res.text();
+        let data;
+        try {
+          data = JSON.parse(text);
+        } catch (e) {
+          data = { error: 'Server temporarily unavailable. Please try again.' };
+        }
         if (!res.ok) {
           throw new Error(data.error || 'Invalid email or password.');
         }
