@@ -484,8 +484,9 @@
       const tutorials = window.BubbleTutorials.getAllTutorials();
       body.innerHTML = `
         <div style="margin-bottom: 20px;">
-          <h2 style="font-size: 20px; font-weight: 800; color: var(--color-text-main); margin-bottom: 4px;">
-            🎓 Flutter & Dart Visual App Tutorials
+          <h2 style="font-size: 20px; font-weight: 800; color: var(--color-text-main); margin-bottom: 4px; display: flex; align-items: center; gap: 8px;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--color-primary-main);"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+            <span>Flutter & Dart Visual App Tutorials</span>
           </h2>
           <p style="font-size: 14px; color: var(--color-text-muted);">
             Pick a guided mini-project to build with visual blocks and learn standard Flutter app concepts:
@@ -496,7 +497,7 @@
           ${tutorials.map(t => `
             <div class="learn-card" style="cursor: pointer;" data-load-tut="${t.id}">
               <div class="learn-card-title">
-                <span style="font-size: 20px;">${t.icon}</span>
+                <span style="display: inline-flex; align-items: center;">${t.icon}</span>
                 <span>${t.title}</span>
                 <span class="badge badge-accent" style="margin-left: auto;">${t.level}</span>
               </div>

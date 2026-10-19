@@ -89,7 +89,9 @@
         toggleBtn.addEventListener('click', (e) => {
           e.stopPropagation();
           this.soundEnabled = !this.soundEnabled;
-          toggleBtn.textContent = this.soundEnabled ? '🔊' : '🔇';
+          toggleBtn.innerHTML = this.soundEnabled
+            ? '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>'
+            : '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="22" x2="16" y1="9" y2="15"/><line x1="16" x2="22" y1="9" y2="15"/></svg>';
         });
       }
     }
@@ -704,7 +706,7 @@
       ctx.shadowBlur = 0;
       ctx.font = '800 11px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
       ctx.fillStyle = '#ffffff';
-      ctx.fillText('TAP TO FLY 🚀', 0, 4);
+      ctx.fillText('TAP TO FLY', 0, 4);
       ctx.restore();
 
       // Instruction Hint Subtitle
@@ -753,13 +755,23 @@
       ctx.fillStyle = '#f59e0b';
       ctx.fillText(this.bestScore.toString(), cardX + 106, cardY + 66);
 
-      // Medal check
+      // Medal check (Drawn with canvas vector graphics)
       if (this.score >= 5) {
-        let medal = '🥉';
-        if (this.score >= 20) medal = '🥇';
-        else if (this.score >= 10) medal = '🥈';
-        ctx.font = '16px serif';
-        ctx.fillText(medal, cardX + 73, cardY + 62);
+        let medalColor = '#cd7f32';
+        if (this.score >= 20) medalColor = '#f59e0b';
+        else if (this.score >= 10) medalColor = '#94a3b8';
+
+        ctx.fillStyle = medalColor;
+        ctx.beginPath();
+        ctx.arc(cardX + 73, cardY + 58, 8, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.lineWidth = 1;
+        ctx.strokeStyle = '#ffffff';
+        ctx.stroke();
+
+        ctx.font = '800 6px sans-serif';
+        ctx.fillStyle = '#ffffff';
+        ctx.fillText('TOP', cardX + 73, cardY + 60);
       }
 
       // Replay Button

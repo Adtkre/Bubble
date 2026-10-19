@@ -138,8 +138,10 @@
             <button class="auth-modal-close" id="btn-close-auth-modal" aria-label="Close modal">&times;</button>
             
             <div class="auth-modal-header">
-              <div class="auth-brand-badge">
-                <span class="auth-brand-logo">🫧</span>
+              <div class="auth-brand-badge" style="display: inline-flex; align-items: center; gap: 6px;">
+                <span class="auth-brand-logo" style="display: flex; align-items: center;">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9 8.5a4 4 0 0 1 4-1"/><circle cx="16" cy="15" r="1.5"/></svg>
+                </span>
                 <span>BUBBLE</span>
               </div>
               <h2 id="auth-modal-title">Welcome to Bubble</h2>
@@ -164,11 +166,14 @@
                 <input type="password" id="login-password" required placeholder="Enter your password" autocomplete="current-password" />
               </div>
               <div class="auth-admin-hint">
-                <small>💡 Testing? Default Admin: <strong>admin@bubble.dev</strong> / <strong>admin123</strong></small>
+                <small style="display: flex; align-items: center; gap: 5px;">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>
+                  <span>Testing? Default Admin: <strong>admin@bubble.dev</strong> / <strong>admin123</strong></span>
+                </small>
               </div>
               <button type="submit" class="auth-submit-btn" id="btn-submit-login">
                 <span>Sign In</span>
-                <span class="auth-btn-spinner" style="display:none;">⏳</span>
+                <span class="auth-btn-spinner" style="display:none;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="spin-icon"><path d="M21 12a9 9 0 1 1-6.219-8.56"/></svg></span>
               </button>
             </form>
 
@@ -188,7 +193,7 @@
               </div>
               <button type="submit" class="auth-submit-btn" id="btn-submit-signup">
                 <span>Create Free Account</span>
-                <span class="auth-btn-spinner" style="display:none;">⏳</span>
+                <span class="auth-btn-spinner" style="display:none;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="spin-icon"><path d="M21 12a9 9 0 1 1-6.219-8.56"/></svg></span>
               </button>
             </form>
           </div>
@@ -365,10 +370,21 @@
                 <div class="auth-dropdown-role">Role: <strong>${user.role || 'user'}</strong></div>
               </div>
               <div class="auth-dropdown-divider"></div>
-              <a href="/dashboard.html" class="auth-dropdown-item">📱 My Projects</a>
-              ${isAdmin ? '<a href="/admin.html" class="auth-dropdown-item auth-admin-link">🛡️ Admin Portal</a>' : ''}
+              <a href="/dashboard.html" class="auth-dropdown-item" style="display: flex; align-items: center; gap: 8px;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>
+                <span>My Projects</span>
+              </a>
+              ${isAdmin ? `
+                <a href="/admin.html" class="auth-dropdown-item auth-admin-link" style="display: flex; align-items: center; gap: 8px;">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                  <span>Admin Portal</span>
+                </a>
+              ` : ''}
               <div class="auth-dropdown-divider"></div>
-              <button class="auth-dropdown-item auth-logout-btn" id="nav-btn-logout">🚪 Sign Out</button>
+              <button class="auth-dropdown-item auth-logout-btn" id="nav-btn-logout" style="display: flex; align-items: center; gap: 8px;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" x2="9" y1="12" y2="12"/></svg>
+                <span>Sign Out</span>
+              </button>
             </div>
           </div>
         `;

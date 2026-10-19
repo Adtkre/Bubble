@@ -22,7 +22,9 @@
 
       <div class="toolbar-divider"></div>
 
-      <div class="brand-logo-icon" style="width: 26px; height: 26px; font-size: 14px; background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);">📱</div>
+      <div class="brand-logo-icon" style="width: 26px; height: 26px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%); color: #fff;">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>
+      </div>
       <div id="editor-project-title" class="project-title-editor" title="Click to rename project">My Flutter App</div>
 
       <div class="save-status-pill" id="save-status-pill">
@@ -49,12 +51,12 @@
         <span style="font-size: 12px; font-weight: 600; color: var(--color-text-muted);">Starter App:</span>
         <select id="select-tutorial-template" class="form-select" style="padding: 4px 8px; font-size: 12px; width: 170px;">
           <option value="">Load Template...</option>
-          <option value="hello_world">👋 Hello World</option>
-          <option value="counter_app">🔢 Counter App</option>
-          <option value="calculator_app">🧮 Calculator App</option>
-          <option value="login_form">🔑 Login Form</option>
-          <option value="todo_app">📝 To-Do List</option>
-          <option value="blank_app">📱 Blank App</option>
+          <option value="hello_world">Hello World</option>
+          <option value="counter_app">Counter App</option>
+          <option value="calculator_app">Calculator App</option>
+          <option value="login_form">Login Form</option>
+          <option value="todo_app">To-Do List</option>
+          <option value="blank_app">Blank App</option>
         </select>
       </div>
     </div>
@@ -65,16 +67,19 @@
         <span>&lt;/&gt; Generated Dart</span>
       </button>
 
-      <button class="btn btn-secondary btn-sm" id="btn-open-learn-mode" title="Flutter & Dart Concept Guides">
-        <span>💡 Tutorials</span>
+      <button class="btn btn-secondary btn-sm" id="btn-open-learn-mode" title="Flutter & Dart Concept Guides" style="display: inline-flex; align-items: center; gap: 5px;">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>
+        <span>Tutorials</span>
       </button>
 
-      <button class="btn btn-secondary btn-sm" id="btn-export-dart" title="Download main.dart file for Flutter">
-        <span>⬇ main.dart</span>
+      <button class="btn btn-secondary btn-sm" id="btn-export-dart" title="Download main.dart file for Flutter" style="display: inline-flex; align-items: center; gap: 5px;">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+        <span>main.dart</span>
       </button>
 
-      <button class="btn btn-subtle btn-sm" id="btn-export-json" title="Download Project JSON Backup">
-        <span>💾 JSON</span>
+      <button class="btn btn-subtle btn-sm" id="btn-export-json" title="Download Project JSON Backup" style="display: inline-flex; align-items: center; gap: 5px;">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+        <span>JSON</span>
       </button>
 
       <div class="toolbar-divider"></div>
@@ -88,7 +93,10 @@
     <!-- Area 1: Left Panel — Dart Block Library -->
     <aside class="editor-sidebar-left" style="width: 280px;">
       <div style="padding: 12px 14px; border-bottom: 1px solid var(--color-border); font-size: 13px; font-weight: 700; color: var(--color-text-main); display: flex; align-items: center; justify-content: space-between;">
-        <span>🧩 Dart Block Library</span>
+        <span style="display: inline-flex; align-items: center; gap: 6px;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19.439 7.85c-.049-.913-.772-1.637-1.685-1.686a2.235 2.235 0 0 1-2.128-2.128c-.049-.913-.773-1.637-1.686-1.686C13.027 2.3 12 3.1 12 4.1a2 2 0 0 1-4 0c0-1-.973-1.8-1.94-1.75-.913.049-1.637.773-1.686 1.686A2.235 2.235 0 0 1 2.246 6.164c-.913.049-1.637.773-1.686 1.686.05 1 .85 2.05 1.85 2.05a2 2 0 0 1 0 4c-1 0-1.8.95-1.85 1.95.049.913.773 1.637 1.686 1.686a2.235 2.235 0 0 1 2.128 2.128c.049.913.773 1.637 1.686 1.686.967.05 1.94-.75 1.94-1.75a2 2 0 0 1 4 0c0 1 1.027 1.8 1.94 1.75.913-.049 1.637-.773 1.686-1.686a2.235 2.235 0 0 1 2.128-2.128c.913-.049 1.637-.773 1.686-1.686-.05-1-.85-1.95-1.85-1.95a2 2 0 0 1 0-4c1 0 1.8-1.05 1.85-2.05z"/></svg>
+          Dart Block Library
+        </span>
         <span class="badge badge-accent">Flutter</span>
       </div>
 
@@ -144,14 +152,28 @@
     <section class="code-explorer-drawer open" id="code-explorer-drawer">
       <div class="code-drawer-header">
         <div class="code-tabs">
-          <button class="code-tab-btn active" data-tab="dart">📄 main.dart (Flutter)</button>
-          <button class="code-tab-btn" data-tab="explanations">🎓 How this Code Works</button>
+          <button class="code-tab-btn active" data-tab="dart" style="display: inline-flex; align-items: center; gap: 5px;">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            <span>main.dart (Flutter)</span>
+          </button>
+          <button class="code-tab-btn" data-tab="explanations" style="display: inline-flex; align-items: center; gap: 5px;">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+            <span>How this Code Works</span>
+          </button>
         </div>
         <div style="display: flex; align-items: center; gap: 8px;">
           <span style="font-size: 11px; color: #94a3b8;">Synchronized with visual blocks</span>
-          <button class="btn btn-subtle btn-sm" id="btn-copy-dart-code" style="color: #cbd5e1;" title="Copy to clipboard">📋 Copy Dart</button>
-          <button class="btn btn-subtle btn-sm" id="btn-download-dart-file" style="color: #cbd5e1;" title="Download main.dart">⬇ Download</button>
-          <button class="btn btn-subtle btn-sm" id="btn-close-code-drawer" style="color: #cbd5e1;" title="Toggle code drawer">✕</button>
+          <button class="btn btn-subtle btn-sm" id="btn-copy-dart-code" style="color: #cbd5e1; display: inline-flex; align-items: center; gap: 5px;" title="Copy to clipboard">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+            <span>Copy Dart</span>
+          </button>
+          <button class="btn btn-subtle btn-sm" id="btn-download-dart-file" style="color: #cbd5e1; display: inline-flex; align-items: center; gap: 5px;" title="Download main.dart">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+            <span>Download</span>
+          </button>
+          <button class="btn btn-subtle btn-sm" id="btn-close-code-drawer" style="color: #cbd5e1;" title="Toggle code drawer" aria-label="Close">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" x2="6" y1="6" y2="18"/><line x1="6" x2="18" y1="6" y2="18"/></svg>
+          </button>
         </div>
       </div>
       <div class="code-viewer-container" id="code-viewer-container">
@@ -166,9 +188,14 @@
     <div class="modal-card learn-modal-card">
       <div class="modal-header">
         <div class="modal-title">
-          <span>🎓 Flutter & Dart App Studio Tutorials</span>
+          <span style="display: inline-flex; align-items: center; gap: 6px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+            Flutter & Dart App Studio Tutorials
+          </span>
         </div>
-        <button class="btn btn-subtle btn-sm" id="btn-close-learn-modal">✕</button>
+        <button class="btn btn-subtle btn-sm" id="btn-close-learn-modal" aria-label="Close">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" x2="6" y1="6" y2="18"/><line x1="6" x2="18" y1="6" y2="18"/></svg>
+        </button>
       </div>
       <div class="modal-body" id="learn-modal-body">
         <!-- Guided projects loaded here -->
@@ -181,6 +208,7 @@
 
   <!-- Scripts -->
   <script src="js/vendor/jszip.min.js"></script>
+  <script src="js/icons.js"></script>
   <script src="js/utils.js"></script>
   <script src="js/storage.js"></script>
   <script src="js/block-definitions.js"></script>

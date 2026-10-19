@@ -64,7 +64,7 @@ ${userCss}
 
 This website was built with **Bubble — The Visual Coding Platform for Beginners**.
 
-## 🚀 How to Run Your Website
+## How to Run Your Website
 
 1. Double click **\`index.html\`** to open and preview your website directly in any modern web browser (Google Chrome, Firefox, Safari, Microsoft Edge).
 2. Or use a local web server (such as Python or VS Code Live Server):
@@ -74,14 +74,14 @@ This website was built with **Bubble — The Visual Coding Platform for Beginner
    \`\`\`
    Then open \`http://localhost:8000\` in your browser.
 
-## 📂 Project Structure
+## Project Structure
 
 - **\`index.html\`**: The semantic HTML5 structure of your web pages.
 - **\`styles.css\`**: Responsive CSS styling, fonts, and layout rules.
 - **\`script.js\`**: Interactive JavaScript click listeners, scrolling, and alerts.
 - **\`project.json\`**: Your raw Bubble project file so you can re-import and continue editing anytime in Bubble!
 
-## 🎓 Learning Web Development
+## Learning Web Development
 
 Inspect \`index.html\`, \`styles.css\`, and \`script.js\` in any code editor (like VS Code) to see how your visual designs translated directly into standard, clean web development code.
 `;

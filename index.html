@@ -147,13 +147,16 @@
               <div class="phone-screen-topbar">
                 <span>9:41</span>
                 <div style="display: flex; gap: 6px; align-items: center;">
-                  <span id="flappy-sound-toggle" style="cursor: pointer; font-size: 10px;" title="Toggle Sound">🔊</span>
+                  <span id="flappy-sound-toggle" style="cursor: pointer; display: flex; align-items: center; color: #475569;" title="Toggle Sound">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+                  </span>
                   <span>5G ■</span>
                 </div>
               </div>
               <div class="phone-app-header">
-                <div class="phone-app-title" style="display: flex; align-items: center; gap: 4px;">
-                  <span>🐤 Flappy Bird</span>
+                <div class="phone-app-title" style="display: flex; align-items: center; gap: 5px;">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg>
+                  <span>Flappy Bird</span>
                 </div>
                 <div id="phone-best-score-badge" style="font-size: 9px; font-weight: 700; color: #b45309; background: #fef3c7; border: 1px solid #fde68a; padding: 1px 6px; border-radius: 9999px;">BEST: 0</div>
               </div>
@@ -213,7 +216,9 @@
       <div class="features-pillars-grid">
         <!-- Pillar 1 -->
         <div class="pillar-card">
-          <div class="pillar-icon-box" style="background-color: #ede9fe; color: #7c3aed;">🧩</div>
+          <div class="pillar-icon-box" style="background-color: #ede9fe; color: #7c3aed;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19.439 7.85c-.049-.913-.772-1.637-1.685-1.686a2.235 2.235 0 0 1-2.128-2.128c-.049-.913-.773-1.637-1.686-1.686C13.027 2.3 12 3.1 12 4.1a2 2 0 0 1-4 0c0-1-.973-1.8-1.94-1.75-.913.049-1.637.773-1.686 1.686A2.235 2.235 0 0 1 2.246 6.164c-.913.049-1.637.773-1.686 1.686.05 1 .85 2.05 1.85 2.05a2 2 0 0 1 0 4c-1 0-1.8.95-1.85 1.95.049.913.773 1.637 1.686 1.686a2.235 2.235 0 0 1 2.128 2.128c.049.913.773 1.637 1.686 1.686.967.05 1.94-.75 1.94-1.75a2 2 0 0 1 4 0c0 1 1.027 1.8 1.94 1.75.913-.049 1.637-.773 1.686-1.686a2.235 2.235 0 0 1 2.128-2.128c.913-.049 1.637-.773 1.686-1.686-.05-1-.85-1.95-1.85-1.95a2 2 0 0 1 0-4c1 0 1.8-1.05 1.85-2.05z"/></svg>
+          </div>
           <h3 class="pillar-title">1. Connect Visual Blocks</h3>
           <p class="pillar-desc">
             Snap together statements, variables, logic branches, and Flutter widgets with zero syntax errors. Puzzle notches ensure only compatible blocks connect.
@@ -222,7 +227,9 @@
 
         <!-- Pillar 2 -->
         <div class="pillar-card">
-          <div class="pillar-icon-box" style="background-color: #e0f2fe; color: #0284c7;">📱</div>
+          <div class="pillar-icon-box" style="background-color: #e0f2fe; color: #0284c7;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>
+          </div>
           <h3 class="pillar-title">2. Live Mobile Simulator</h3>
           <p class="pillar-desc">
             Watch your mobile app respond in real-time inside a realistic phone frame. Tap buttons, input text, and trigger state changes instantly.
@@ -231,7 +238,9 @@
 
         <!-- Pillar 3 -->
         <div class="pillar-card">
-          <div class="pillar-icon-box" style="background-color: #dcfce7; color: #16a34a;">📜</div>
+          <div class="pillar-icon-box" style="background-color: #dcfce7; color: #16a34a;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </div>
           <h3 class="pillar-title">3. Learn Real Dart Code</h3>
           <p class="pillar-desc">
             Bubble translates your block programs into clean, standard Flutter <code>main.dart</code> code with source-mapping highlights and guided explanations.
@@ -254,28 +263,36 @@
 
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px;">
         <div class="pillar-card" style="padding: 24px;">
-          <div style="font-size: 32px; margin-bottom: 8px;">👋</div>
+          <div class="pillar-icon-box" style="background-color: #fef3c7; color: #d97706; margin-bottom: 12px;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-9.33-5"/><path d="m14 15 4-4"/><path d="m14 15-4-4"/><path d="M2 13h10"/><circle cx="12" cy="13" r="8"/></svg>
+          </div>
           <h4 style="font-size: 18px; font-weight: 700; margin: 0 0 6px 0;">Hello World</h4>
           <p style="font-size: 13px; color: #64748b; margin: 0 0 16px 0;">Master the Flutter Scaffold, AppBar, styled Text, and greeting buttons.</p>
           <a href="editor.html" class="btn-explore-templates" style="padding: 8px 16px; font-size: 13px; text-align: center;">Open Starter →</a>
         </div>
 
         <div class="pillar-card" style="padding: 24px;">
-          <div style="font-size: 32px; margin-bottom: 8px;">🔢</div>
+          <div class="pillar-icon-box" style="background-color: #dbeafe; color: #2563eb; margin-bottom: 12px;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="9" y2="9"/><line x1="4" x2="20" y1="15" y2="15"/><line x1="10" x2="8" y1="3" y2="21"/><line x1="16" x2="14" y1="3" y2="21"/></svg>
+          </div>
           <h4 style="font-size: 18px; font-weight: 700; margin: 0 0 6px 0;">Counter App</h4>
           <p style="font-size: 13px; color: #64748b; margin: 0 0 16px 0;">The iconic Flutter classic. Learn state variables and setState() screen updates.</p>
           <a href="editor.html" class="btn-explore-templates" style="padding: 8px 16px; font-size: 13px; text-align: center;">Open Starter →</a>
         </div>
 
         <div class="pillar-card" style="padding: 24px;">
-          <div style="font-size: 32px; margin-bottom: 8px;">🧮</div>
+          <div class="pillar-icon-box" style="background-color: #f3e8ff; color: #9333ea; margin-bottom: 12px;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="20" x="4" y="2" rx="2"/><line x1="8" x2="16" y1="6" y2="6"/><line x1="16" x2="16" y1="14" y2="18"/><path d="M16 10h.01"/><path d="M12 10h.01"/><path d="M8 10h.01"/><path d="M12 14h.01"/><path d="M8 14h.01"/><path d="M12 18h.01"/><path d="M8 18h.01"/></svg>
+          </div>
           <h4 style="font-size: 18px; font-weight: 700; margin: 0 0 6px 0;">Calculator</h4>
           <p style="font-size: 13px; color: #64748b; margin: 0 0 16px 0;">Handle arithmetic operators, numerical state, and calculator buttons.</p>
           <a href="editor.html" class="btn-explore-templates" style="padding: 8px 16px; font-size: 13px; text-align: center;">Open Starter →</a>
         </div>
 
         <div class="pillar-card" style="padding: 24px;">
-          <div style="font-size: 32px; margin-bottom: 8px;">🔑</div>
+          <div class="pillar-icon-box" style="background-color: #ffedd5; color: #ea580c; margin-bottom: 12px;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21 2-2 2m-1.5 1.5L14 9l-4.5 4.5a5 5 0 1 1-7-7L7 2l3.5 3.5 1.5-1.5 2 2 1.5-1.5"/></svg>
+          </div>
           <h4 style="font-size: 18px; font-weight: 700; margin: 0 0 6px 0;">Login Form</h4>
           <p style="font-size: 13px; color: #64748b; margin: 0 0 16px 0;">Capture user input with TextFields and show alert feedback.</p>
           <a href="editor.html" class="btn-explore-templates" style="padding: 8px 16px; font-size: 13px; text-align: center;">Open Starter →</a>
@@ -373,6 +390,7 @@
       });
     })();
   </script>
+  <script src="js/icons.js"></script>
   <script src="js/flappy.js"></script>
   <script src="js/auth.js"></script>
 </body>

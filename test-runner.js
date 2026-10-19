@@ -29,7 +29,7 @@ require('./js/dart-learn.js');
 require('./js/mobile-preview.js');
 require('./js/history.js');
 
-console.log('🧪 Starting Bubble Flutter & Dart Studio Test Suite...\n');
+console.log('[Test Suite] Starting Bubble Flutter & Dart Studio Test Suite...\n');
 
 let passedTests = 0;
 let totalTests = 0;
@@ -37,10 +37,10 @@ let totalTests = 0;
 function assert(condition, message) {
   totalTests++;
   if (condition) {
-    console.log(`  ✓ PASS: ${message}`);
+    console.log(`  [PASS] ${message}`);
     passedTests++;
   } else {
-    console.error(`  ✕ FAIL: ${message}`);
+    console.error(`  [FAIL] ${message}`);
     process.exitCode = 1;
   }
 }

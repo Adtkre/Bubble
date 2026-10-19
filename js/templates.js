@@ -14,7 +14,7 @@
       return {
         id: 'blank',
         name: 'Blank Canvas',
-        icon: '📄',
+        icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>',
         description: 'Start from scratch with a clean slate.',
         components: []
       };
@@ -27,7 +27,7 @@
       return {
         id: 'portfolio',
         name: 'Personal Portfolio',
-        icon: '👨‍💻',
+        icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="4"/><path d="M5.5 21a8.38 8.38 0 0 1 13 0"/></svg>',
         description: 'Showcase your creative projects, skills, and contact details.',
         components: [
           // Navbar
@@ -35,7 +35,7 @@
             id: 'elem_port_nav',
             type: 'navbar',
             props: {
-              brandName: '✨ Alex Morgan',
+              brandName: 'Alex Morgan',
               links: [
                 { text: 'About', href: '#about' },
                 { text: 'Projects', href: '#projects' },
@@ -205,7 +205,7 @@
                   {
                     id: 'elem_port_sub_btn',
                     type: 'button',
-                    props: { label: 'Send Message ✉', actionType: 'none' },
+                    props: { label: 'Send Message', actionType: 'none' },
                     styles: { backgroundColor: '#4f46e5', color: '#ffffff', width: '100%' }
                   }
                 ]
@@ -233,7 +233,7 @@
       return {
         id: 'saas',
         name: 'SaaS Startup Landing',
-        icon: '🚀',
+        icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/></svg>',
         description: 'Modern landing page with hero CTA, 3 feature columns, and sign-up.',
         components: [
           // Navbar
@@ -241,7 +241,7 @@
             id: 'elem_saas_nav',
             type: 'navbar',
             props: {
-              brandName: '⚡ BoltFlow',
+              brandName: 'BoltFlow',
               links: [
                 { text: 'Product', href: '#features' },
                 { text: 'Pricing', href: '#pricing' },
@@ -310,7 +310,7 @@
                     type: 'card',
                     styles: { flex: '1 1 260px' },
                     children: [
-                      { id: 'elem_saas_c1_h', type: 'heading', props: { text: '⚡ Lightning Fast', level: 'h3' }, styles: { fontSize: '20px' } },
+                      { id: 'elem_saas_c1_h', type: 'heading', props: { text: 'Lightning Fast', level: 'h3' }, styles: { fontSize: '20px' } },
                       { id: 'elem_saas_c1_p', type: 'paragraph', props: { text: 'Built on edge workers to trigger events with sub-millisecond response times.' } }
                     ]
                   },
@@ -319,7 +319,7 @@
                     type: 'card',
                     styles: { flex: '1 1 260px' },
                     children: [
-                      { id: 'elem_saas_c2_h', type: 'heading', props: { text: '🔒 Enterprise Security', level: 'h3' }, styles: { fontSize: '20px' } },
+                      { id: 'elem_saas_c2_h', type: 'heading', props: { text: 'Enterprise Security', level: 'h3' }, styles: { fontSize: '20px' } },
                       { id: 'elem_saas_c2_p', type: 'paragraph', props: { text: 'SOC-2 compliant end-to-end encryption keeping your customer data safe.' } }
                     ]
                   },
@@ -328,7 +328,7 @@
                     type: 'card',
                     styles: { flex: '1 1 260px' },
                     children: [
-                      { id: 'elem_saas_c3_h', type: 'heading', props: { text: '📊 Real-time Insights', level: 'h3' }, styles: { fontSize: '20px' } },
+                      { id: 'elem_saas_c3_h', type: 'heading', props: { text: 'Real-time Insights', level: 'h3' }, styles: { fontSize: '20px' } },
                       { id: 'elem_saas_c3_p', type: 'paragraph', props: { text: 'Live audit logs and error alerts directly sent to your team Slack channel.' } }
                     ]
                   }
@@ -357,14 +357,14 @@
       return {
         id: 'coffeeshop',
         name: 'Artisan Coffee & Bakery',
-        icon: '☕',
+        icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" x2="6" y1="1" y2="4"/><line x1="10" x2="10" y1="1" y2="4"/><line x1="14" x2="14" y1="1" y2="4"/></svg>',
         description: 'Warm, cozy business website featuring menu specials and opening hours.',
         components: [
           {
             id: 'elem_cafe_nav',
             type: 'navbar',
             props: {
-              brandName: '☕ Bean & Brew',
+              brandName: 'Bean & Brew',
               links: [
                 { text: 'Our Story', href: '#story' },
                 { text: 'Menu', href: '#menu' },
@@ -436,7 +436,7 @@
       return {
         id: 'product',
         name: 'Product Showcase',
-        icon: '🎧',
+        icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>',
         description: 'Single product showcase card with photo, price tag, features, and purchase CTA.',
         components: [
           {

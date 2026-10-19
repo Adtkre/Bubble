@@ -202,7 +202,7 @@
             <div class="template-mini-phone">
               <div class="mini-phone-bar" style="background: #7c3aed;"></div>
               <div class="mini-phone-body">
-                <div style="font-size: 6px; color: #7c3aed; font-weight: 700;">✓ Task 1</div>
+                <div style="font-size: 6px; color: #7c3aed; font-weight: 700;">Task 1</div>
                 <div style="font-size: 6px; color: #94a3b8;">○ Task 2</div>
               </div>
             </div>
@@ -289,18 +289,32 @@
                 <span class="badge" style="background-color: #e0f2fe; color: #0284c7; font-size: 10px; font-weight: 700; border-radius: 9999px; padding: 2px 8px;">Flutter 3</span>
               </div>
               <div class="project-meta">
-                <span>🕒 Updated ${dateStr}</span>
+                <span style="display: inline-flex; align-items: center; gap: 4px;">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  Updated ${dateStr}
+                </span>
                 <span>•</span>
-                <span>🧩 ${blockCount} blocks</span>
+                <span style="display: inline-flex; align-items: center; gap: 4px;">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19.439 7.85c-.049-.913-.772-1.637-1.685-1.686a2.235 2.235 0 0 1-2.128-2.128c-.049-.913-.773-1.637-1.686-1.686C13.027 2.3 12 3.1 12 4.1a2 2 0 0 1-4 0c0-1-.973-1.8-1.94-1.75-.913.049-1.637.773-1.686 1.686A2.235 2.235 0 0 1 2.246 6.164c-.913.049-1.637.773-1.686 1.686.05 1 .85 2.05 1.85 2.05a2 2 0 0 1 0 4c-1 0-1.8.95-1.85 1.95.049.913.773 1.637 1.686 1.686a2.235 2.235 0 0 1 2.128 2.128c.049.913.773 1.637 1.686 1.686.967.05 1.94-.75 1.94-1.75a2 2 0 0 1 4 0c0 1 1.027 1.8 1.94 1.75.913-.049 1.637-.773 1.686-1.686a2.235 2.235 0 0 1 2.128-2.128c.913-.049 1.637-.773 1.686-1.686-.05-1-.85-1.95-1.85-1.95a2 2 0 0 1 0-4c1 0 1.8-1.05 1.85-2.05z"/></svg>
+                  ${blockCount} blocks
+                </span>
               </div>
             </div>
             <div class="project-card-actions">
               <a href="editor.html?id=${p.id}" class="btn-open-editor">Open Block Studio →</a>
               <div style="display: flex; gap: 4px;">
-                <button class="btn btn-secondary btn-sm" data-action="rename" title="Rename App" style="border-radius: 9999px; width: 32px; height: 32px; padding: 0;">✏️</button>
-                <button class="btn btn-secondary btn-sm" data-action="duplicate" title="Duplicate App" style="border-radius: 9999px; width: 32px; height: 32px; padding: 0;">⧉</button>
-                <button class="btn btn-secondary btn-sm" data-action="export-json" title="Download JSON Backup" style="border-radius: 9999px; width: 32px; height: 32px; padding: 0;">💾</button>
-                <button class="btn btn-secondary btn-sm" data-action="delete" title="Delete App" style="border-radius: 9999px; width: 32px; height: 32px; padding: 0; color: var(--color-danger);">🗑</button>
+                <button class="btn btn-secondary btn-sm" data-action="rename" title="Rename App" style="border-radius: 9999px; width: 32px; height: 32px; padding: 0; display: inline-flex; align-items: center; justify-content: center;">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/><path d="m15 5 4 4"/></svg>
+                </button>
+                <button class="btn btn-secondary btn-sm" data-action="duplicate" title="Duplicate App" style="border-radius: 9999px; width: 32px; height: 32px; padding: 0; display: inline-flex; align-items: center; justify-content: center;">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+                </button>
+                <button class="btn btn-secondary btn-sm" data-action="export-json" title="Download JSON Backup" style="border-radius: 9999px; width: 32px; height: 32px; padding: 0; display: inline-flex; align-items: center; justify-content: center;">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+                </button>
+                <button class="btn btn-secondary btn-sm" data-action="delete" title="Delete App" style="border-radius: 9999px; width: 32px; height: 32px; padding: 0; color: var(--color-danger); display: inline-flex; align-items: center; justify-content: center;">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><line x1="10" x2="10" y1="11" y2="17"/><line x1="14" x2="14" y1="11" y2="17"/></svg>
+                </button>
               </div>
             </div>
           </div>

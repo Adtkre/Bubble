@@ -24,7 +24,9 @@
       if (!this.selectedBlock) {
         this.container.innerHTML = `
           <div class="inspector-empty">
-            <div class="inspector-empty-icon">👆</div>
+            <div class="inspector-empty-icon" style="color: var(--color-primary-main); margin-bottom: 8px;">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3 3 7.07 16.97 2.51-7.39 7.39-2.51L3 3z"/><path d="m13 13 6 6"/></svg>
+            </div>
             <div style="font-weight: 700; color: var(--color-text-main); margin-bottom: 4px;">No Block Selected</div>
             <div>Click any block in the workspace to customize its fields, widgets, or logic parameters.</div>
           </div>
@@ -93,7 +95,7 @@
             <span class="badge" style="background-color: ${cat.color}; color: #ffffff;">${def ? def.icon : '▢'}</span>
             <span>${def ? def.label : block.type}</span>
           </div>
-          <button class="btn btn-subtle btn-sm" id="btn-prop-del" title="Delete Block" style="color: var(--color-danger);">🗑</button>
+          <button class="btn btn-subtle btn-sm" id="btn-prop-del" title="Delete Block" style="color: var(--color-danger);"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/></svg></button>
         </div>
 
         <div class="inspector-body">
@@ -104,11 +106,14 @@
 
           <!-- Educational Dart Breakdown -->
           <div class="inspector-learn-tip" style="margin-top: 16px;">
-            <div class="learn-tip-title">🎓 Flutter & Dart Insight</div>
+            <div class="learn-tip-title" style="display: flex; align-items: center; gap: 6px;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+              <span>Flutter & Dart Insight</span>
+            </div>
             <div class="learn-tip-text" style="margin-bottom: 8px;">${lesson.summary}</div>
             <pre style="background: #0f172a; color: #38bdf8; padding: 10px; border-radius: 6px; font-size: 11px; font-family: var(--font-mono); overflow-x: auto; margin-bottom: 8px;"><code>${window.BubbleUtils.escapeHtml(lesson.dartSnippet)}</code></pre>
             <div style="font-size: 12px; color: #4338ca; line-height: 1.5; margin-bottom: 6px;">${lesson.explanation}</div>
-            ${lesson.beginnerMistake ? `<div style="font-size: 11px; color: #b45309; background: #fef3c7; padding: 6px 8px; border-radius: 4px;"><strong>⚠️ Beginner Tip:</strong> ${lesson.beginnerMistake}</div>` : ''}
+            ${lesson.beginnerMistake ? `<div style="font-size: 11px; color: #b45309; background: #fef3c7; padding: 6px 8px; border-radius: 4px;"><strong style="display: inline-flex; align-items: center; gap: 4px;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" x2="12" y1="9" y2="13"/><line x1="12" x2="12.01" y1="17" y2="17"/></svg> Beginner Tip:</strong> ${lesson.beginnerMistake}</div>` : ''}
           </div>
         </div>
       `;

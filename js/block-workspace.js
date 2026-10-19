@@ -116,14 +116,24 @@
       if (!blocks || blocks.length === 0) {
         this.container.innerHTML = `
           <div class="workspace-empty-state">
-            <div style="font-size: 42px; margin-bottom: 8px;">🧩</div>
+            <div style="margin-bottom: 8px; color: var(--color-primary-main);">
+              <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M19.439 7.85c0-1.57.802-2.41 1.561-2.41 1.536 0 2 1.94 2 3.19 0 .85-.45 1.5-1.14 1.83a2.5 2.5 0 0 0 0 4.7c.69.33 1.14.98 1.14 1.84 0 1.24-.464 3.19-2 3.19-.759 0-1.561-.84-1.561-2.41V17H16v2.561c0 .759-.84 1.561-2.41 1.561-1.25 0-3.19-.464-3.19-2 0-.69.65-1.14.98-1.83a2.5 2.5 0 0 0-4.7 0c-.33.69-.98 1.14-1.83 1.14-1.25 0-3.19-.464-3.19-2 0-.759.802-1.561 1.561-2.561H5.5V13h-2.56c-.759 0-1.561-.802-1.561-2.36 0-1.25.464-3.19 2-3.19.85 0 1.5.45 1.84 1.14a2.5 2.5 0 0 0 4.7 0c.33-.69.98-1.14 1.83-1.14 1.57 0 2.41.802 2.41 1.561V11H16V7.85Z"/>
+              </svg>
+            </div>
             <div style="font-size: 18px; font-weight: 700; color: var(--color-text-main); margin-bottom: 6px;">Visual Block Workspace</div>
             <div style="font-size: 14px; color: var(--color-text-muted); max-width: 480px; line-height: 1.6; margin-bottom: 16px;">
               Drag programming blocks and Flutter widgets from the left library, or pick a starter tutorial above to start building your mobile app!
             </div>
             <div style="display: flex; gap: 8px;">
-              <button class="btn btn-primary btn-sm" id="btn-quick-hw">👋 Load Hello World</button>
-              <button class="btn btn-secondary btn-sm" id="btn-quick-counter">🔢 Load Counter App</button>
+              <button class="btn btn-primary btn-sm" id="btn-quick-hw">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 4px;"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                Load Hello World
+              </button>
+              <button class="btn btn-secondary btn-sm" id="btn-quick-counter">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 4px;"><line x1="4" x2="20" y1="9" y2="9"/><line x1="4" x2="20" y1="15" y2="15"/><line x1="10" x2="8" y1="3" y2="21"/><line x1="16" x2="14" y1="3" y2="21"/></svg>
+                Load Counter App
+              </button>
             </div>
           </div>
         `;
@@ -208,10 +218,10 @@
 
             <!-- Quick Action Toolbar -->
             <div class="vblock-tools">
-              <button class="vblock-tool-btn" data-tool="up" title="Move Up">▲</button>
-              <button class="vblock-tool-btn" data-tool="down" title="Move Down">▼</button>
-              <button class="vblock-tool-btn" data-tool="dup" title="Duplicate">⧉</button>
-              <button class="vblock-tool-btn" data-tool="del" title="Delete" style="color: #fca5a5;">✕</button>
+              <button class="vblock-tool-btn" data-tool="up" title="Move Up"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg></button>
+              <button class="vblock-tool-btn" data-tool="down" title="Move Down"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></button>
+              <button class="vblock-tool-btn" data-tool="dup" title="Duplicate"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="13" height="13" x="9" y="9" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
+              <button class="vblock-tool-btn" data-tool="del" title="Delete" style="color: #fca5a5;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" x2="6" y1="6" y2="18"/><line x1="6" x2="18" y1="6" y2="18"/></svg></button>
             </div>
           </div>
 

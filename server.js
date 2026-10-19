@@ -86,7 +86,7 @@ const server = http.createServer(async (req, res) => {
 
 server.listen(PORT, () => {
   console.log(`\n======================================================`);
-  console.log(`  🚀 Bubble Visual Coding Platform + Database API`);
+  console.log(`  Bubble Visual Coding Platform + Database API`);
   console.log(`  Local App URL:    http://localhost:${PORT}/dashboard.html`);
   console.log(`  Admin Portal URL: http://localhost:${PORT}/admin.html`);
   console.log(`  Default Admin:    admin@bubble.dev / admin123`);

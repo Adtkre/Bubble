@@ -121,8 +121,8 @@
     tbody.innerHTML = filtered.map(log => {
       const isSignup = log.action === 'signup';
       const actionBadge = isSignup
-        ? '<span class="badge-action-signup">🟢 Account Created</span>'
-        : '<span class="badge-action-login">🔵 User Logged In</span>';
+        ? '<span class="badge-action-signup" style="display: inline-flex; align-items: center; gap: 4px;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" x2="19" y1="8" y2="14"/><line x1="22" x2="16" y1="11" y2="11"/></svg> Account Created</span>'
+        : '<span class="badge-action-login" style="display: inline-flex; align-items: center; gap: 4px;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" x2="3" y1="12" y2="12"/></svg> User Logged In</span>';
 
       return `
         <tr>

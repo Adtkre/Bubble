@@ -9,7 +9,7 @@ Instead of an ordinary website builder, Bubble connects three core elements:
 
 ---
 
-## 📱 The 4 Core Editor Areas
+## The 4 Core Editor Areas
 
 ### 1. Left Panel — Dart Block Library
 Over 30 distinct visual blocks organized into 12 color-coded categories:
@@ -29,7 +29,7 @@ Over 30 distinct visual blocks organized into 12 color-coded categories:
 ### 2. Center Panel — Visual Block Workspace
 - Puzzle-notched statements and C-shaped nesting clamps for conditions, loops, and event handlers.
 - Drag-and-drop placement, nesting, and reordering.
-- Block action tools: Move up `▲`, Move down `▼`, Duplicate `⧉`, and Delete `✕`.
+- Block action tools: Move up, Move down, Duplicate, and Delete.
 - Undo (`Ctrl+Z`) and Redo (`Ctrl+Y` / `Ctrl+Shift+Z`).
 
 ### 3. Right Panel — Live Mobile Phone Simulator & Property Inspector
@@ -45,19 +45,19 @@ Over 30 distinct visual blocks organized into 12 color-coded categories:
 
 ---
 
-## ⚡ Guided Starter Mini-Projects & Tutorials
+## Guided Starter Mini-Projects & Tutorials
 
 Bubble includes 5 guided starter templates:
-1. 👋 **Hello World App**: Scaffold, AppBar, styled Text, and an interactive greeting button.
-2. 🔢 **Flutter Classic Counter App**: Iconic Flutter starter with state variable `counter`, increment logic, and dynamic screen updates.
-3. 🧮 **Simple Calculator App**: Arithmetic operations, inputs, and state calculation.
-4. 🔑 **Mobile Login Form UI**: TextFields, user input binding, and validation SnackBar.
-5. 📝 **Task Tracker & To-Do List**: Dynamic Dart `List<String>`, `ListView`, and item additions.
-6. 📱 **Blank Flutter App**: Clean canvas for building custom mobile apps from scratch.
+1. **Hello World App**: Scaffold, AppBar, styled Text, and an interactive greeting button.
+2. **Flutter Classic Counter App**: Iconic Flutter starter with state variable `counter`, increment logic, and dynamic screen updates.
+3. **Simple Calculator App**: Arithmetic operations, inputs, and state calculation.
+4. **Mobile Login Form UI**: TextFields, user input binding, and validation SnackBar.
+5. **Task Tracker & To-Do List**: Dynamic Dart `List<String>`, `ListView`, and item additions.
+6. **Blank Flutter App**: Clean canvas for building custom mobile apps from scratch.
 
 ---
 
-## 🛠 Technology Stack
+## Technology Stack
 
 - **Frontend**: Plain HTML5, Vanilla CSS3, Vanilla JavaScript (ES6+ modular architecture).
 - **Target Language**: Dart 3.x / Flutter 3.x (`main.dart`).
@@ -67,14 +67,14 @@ Bubble includes 5 guided starter templates:
 
 ---
 
-## 🚀 How to Run Locally
+## How to Run Locally
 
 From the project root:
 ```bash
 npm start
 ```
 Then visit:
-👉 **[http://localhost:3000/dashboard.html](http://localhost:3000/dashboard.html)**
+**[http://localhost:3000/dashboard.html](http://localhost:3000/dashboard.html)**
 
 ### Running the Test Suite
 ```bash

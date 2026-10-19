@@ -84,7 +84,7 @@
     image: {
       type: 'image',
       label: 'Image',
-      icon: '🖼',
+      icon: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px;"><rect width="18" height="18" x="3" y="3" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>',
       category: 'Media',
       description: 'Visual image with URL and accessibility alternative text.',
       isContainer: false,
@@ -108,7 +108,7 @@
     link: {
       type: 'link',
       label: 'Hyperlink',
-      icon: '🔗',
+      icon: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px;"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>',
       category: 'Typography',
       description: 'Clickable text that points to an external page or section.',
       isContainer: false,
@@ -158,7 +158,7 @@
     row: {
       type: 'row',
       label: 'Row (Flexbox)',
-      icon: '☰',
+      icon: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px;"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 12h18"/></svg>',
       category: 'Layout',
       description: 'Horizontal row layout to place elements or columns side-by-side.',
       isContainer: true,
@@ -204,7 +204,7 @@
     card: {
       type: 'card',
       label: 'Card',
-      icon: '🗂',
+      icon: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px;"><rect width="16" height="20" x="4" y="2" rx="2"/><line x1="8" x2="16" y1="6" y2="6"/><line x1="8" x2="16" y1="10" y2="10"/></svg>',
       category: 'Layout',
       description: 'Elevated content box with rounded borders, padding, and shadow.',
       isContainer: true,
@@ -230,12 +230,12 @@
     navbar: {
       type: 'navbar',
       label: 'Navbar',
-      icon: '⚑',
+      icon: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px;"><path d="M4 6h16M4 12h16M4 18h16"/></svg>',
       category: 'Layout',
       description: 'Header navigation bar with brand title and menu links.',
       isContainer: false,
       defaultProps: {
-        brandName: '🚀 MyBrand',
+        brandName: 'MyBrand',
         links: [
           { text: 'Features', href: '#features' },
           { text: 'About', href: '#about' },
@@ -260,7 +260,7 @@
     form: {
       type: 'form',
       label: 'Form',
-      icon: '📝',
+      icon: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" x2="8" y1="13" y2="13"/><line x1="16" x2="8" y1="17" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>',
       category: 'Interactive',
       description: 'Form container to capture user input and trigger submissions.',
       isContainer: true,
@@ -318,7 +318,7 @@
     checkbox: {
       type: 'checkbox',
       label: 'Checkbox',
-      icon: '☑',
+      icon: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px;"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="m9 12 2 2 4-4"/></svg>',
       category: 'Interactive',
       description: 'Selectable checkbox with accompanying label text.',
       isContainer: false,

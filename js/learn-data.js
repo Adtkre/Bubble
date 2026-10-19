@@ -134,23 +134,23 @@
     coreConcepts: [
       {
         title: 'Margin vs Padding (The CSS Box Model)',
-        icon: '📦',
+        icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -3px;"><rect width="20" height="20" x="2" y="2" rx="2"/><rect width="10" height="10" x="7" y="7" rx="1"/></svg>',
         desc: 'Every element in CSS is a box. Padding is the space INSIDE the border, cushioning the content. Margin is the space OUTSIDE the border, pushing away neighboring elements.',
         visual: 'box-model'
       },
       {
         title: 'HTML vs CSS vs JavaScript',
-        icon: '🏗',
+        icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -3px;"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>',
         desc: 'Think of a house: HTML is the bricks and walls (structure). CSS is the paint, lighting, and interior design (styling). JavaScript is the electricity, automatic doors, and switches (interactivity).'
       },
       {
         title: 'Responsive Design (Media Queries)',
-        icon: '📱',
+        icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -3px;"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>',
         desc: 'Websites must look great on smartphones, tablets, and large 4K monitors. CSS uses media queries to adjust font sizes and stack columns vertically on smaller screens.'
       },
       {
         title: 'Semantic HTML',
-        icon: '🏷',
+        icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -3px;"><path d="M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2Z"/><path d="M7 7h.01"/></svg>',
         desc: 'Semantic tags like <header>, <nav>, <main>, and <footer> explain their meaning to both the browser, search engines, and screen readers for visually impaired visitors.'
       }
     ],

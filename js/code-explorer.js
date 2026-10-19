@@ -143,7 +143,10 @@
     renderExplanationsTab(container) {
       container.innerHTML = `
         <div style="padding: 16px; color: #f8fafc; font-family: var(--font-sans); line-height: 1.6;">
-          <h3 style="font-size: 16px; font-weight: 700; color: #38bdf8; margin-bottom: 8px;">🏗 How this Flutter App Works</h3>
+          <h3 style="font-size: 16px; font-weight: 700; color: #38bdf8; margin-bottom: 8px; display: flex; align-items: center; gap: 8px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg>
+            <span>How this Flutter App Works</span>
+          </h3>
           <p style="font-size: 13px; color: #cbd5e1; margin-bottom: 16px;">
             In Flutter, everything is a <strong>Widget</strong>. Your visual blocks were translated into standard Flutter code:
           </p>
@@ -168,7 +171,7 @@
           </div>
 
           <div style="font-size: 12px; color: #e2e8f0; background: rgba(56, 189, 248, 0.15); border-left: 3px solid #38bdf8; padding: 10px 14px; border-radius: 4px;">
-            💡 <strong>Next Step:</strong> Click the "Copy Dart Code" or "Download main.dart" button above to paste this directly into a real Flutter project in VS Code or Android Studio!
+            <strong style="display: inline-flex; align-items: center; gap: 4px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg> Next Step:</strong> Click the "Copy Dart Code" or "Download main.dart" button above to paste this directly into a real Flutter project in VS Code or Android Studio!
           </div>
         </div>
       `;
