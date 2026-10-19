@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bubble — Build Mobile Apps with Blocks | Learn Flutter & Dart</title>
+  <meta name="description" content="Create real Flutter apps by connecting visual blocks. Learn Dart step by step and see your app come to life instantly in an interactive browser simulator.">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/landing.css">
+</head>
+<body class="landing-body">
+
+  <!-- Top Navigation -->
+  <header class="landing-nav">
+    <div class="landing-container" style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+      <a href="index.html" class="landing-brand">
+        <span class="brand-glyph">B</span>
+        <span class="brand-name">BUBBLE</span>
+      </a>
+
+      <nav>
+        <ul class="landing-nav-links">
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="dashboard.html">Templates</a></li>
+          <li><a href="#learn">Learn</a></li>
+          <li><a href="#community">Community</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </nav>
+
+      <div>
+        <a href="editor.html" class="btn-get-started-nav">Get Started →</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-wrapper" id="hero">
+    <!-- Curved Dark Green Fluid Shape in Background -->
+    <div class="hero-bg-curved-green"></div>
+
+    <div class="landing-container">
+      <div class="hero-grid">
+        
+        <!-- Left Hero Content -->
+        <div class="hero-left">
+          <div class="hero-badge-tag">Visual Coding for App Development</div>
+          
+          <h1 class="hero-title">
+            Build Mobile<br>
+            Apps with<br>
+            Blocks
+          </h1>
+
+          <p class="hero-description">
+            Create real Flutter apps by connecting visual blocks. Learn Dart step by step and see your app come to life instantly.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="editor.html" class="btn-start-building">
+              <span>Start Building</span>
+              <span>→</span>
+            </a>
+            <a href="dashboard.html" class="btn-explore-templates">Explore Templates</a>
+          </div>
+
+          <div class="hero-trust-bar">
+            <span>No setup required</span>
+            <span class="divider">|</span>
+            <span>Works in your Browser</span>
+            <span class="divider">|</span>
+            <span>Beginner Friendly</span>
+          </div>
+        </div>
+
+        <!-- Right Hero 3D Stage Composition -->
+        <div class="hero-visual-stage">
+          
+          <!-- Floating Pastel Purple Gadget -->
+          <div class="floating-purple-gadget" title="Interactive visual programming block">
+            <span>⟡</span>
+          </div>
+
+          <!-- Main Visual Editor Dark Tablet Window -->
+          <div class="editor-tablet-window">
+            <div class="tablet-titlebar">
+              <div class="tablet-titlebar-left">
+                <div class="tablet-icon-b">B</div>
+                <div class="tablet-project-name">My First App</div>
+              </div>
+              <div class="tablet-titlebar-right">
+                <span style="color: #64748b; font-size: 11px;">↩ ↪</span>
+                <button class="btn-tablet-run" id="btn-tablet-run-demo">
+                  <span>▶</span>
+                  <span>Run ▾</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="tablet-body">
+              <!-- Left Categories -->
+              <div class="tablet-sidebar">
+                <div class="tablet-cat-pill active">● UI Widgets</div>
+                <div class="tablet-cat-pill">● Events</div>
+                <div class="tablet-cat-pill">● Variables</div>
+                <div class="tablet-cat-pill">● Logic</div>
+                <div class="tablet-cat-pill">● Loops</div>
+                <div class="tablet-cat-pill">● Functions</div>
+                <div class="tablet-cat-pill">● Navigation</div>
+                <div class="tablet-cat-pill">● Data Types</div>
+                <div class="tablet-cat-pill">● Lists</div>
+                <div class="tablet-cat-pill">● Math</div>
+                <div class="tablet-cat-pill">● More</div>
+              </div>
+
+              <!-- Center Block Workspace -->
+              <div class="tablet-workspace">
+                <!-- 1. Hat Block: When button is pressed -->
+                <div class="hero-block-hat">When button is pressed</div>
+
+                <!-- 2. Statement: set message to "Hello, Bubble!" -->
+                <div class="hero-block-cyan">set message to &quot;Hello, Bubble!&quot;</div>
+
+                <!-- 3. Statement: show text message -->
+                <div class="hero-block-purple-action">show text <span style="background: rgba(0,0,0,0.25); padding: 1px 4px; border-radius: 3px;">message</span></div>
+
+                <!-- 4. C-Block: if counter > 10 -->
+                <div class="hero-block-if-clamp">
+                  <div class="hero-block-if-head">
+                    <span>if</span>
+                    <span class="pill-operand">counter &gt; 10</span>
+                  </div>
+                  <div class="hero-block-purple-action" style="margin-left: 4px;">show message &quot;You win!&quot;</div>
+                  <div class="hero-block-else-head">else</div>
+                  <div class="hero-block-purple-action" style="margin-left: 4px;">show message &quot;Keep going!&quot;</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Realistic Smartphone Foreground Mockup -->
+          <div class="hero-phone-mockup">
+            <div class="phone-inner-screen">
+              <div class="phone-screen-topbar">
+                <span>9:41</span>
+                <span>5G ■</span>
+              </div>
+              <div class="phone-app-header">
+                <div class="phone-app-title">My App</div>
+                <div style="font-size: 10px; color: #64748b;">☰</div>
+              </div>
+              <div class="phone-app-body">
+                <div class="phone-display-text" id="demo-phone-msg">Hello, Bubble!</div>
+                <button class="phone-tap-btn" id="demo-phone-tap-btn">Tap Me</button>
+                <div class="phone-score-text" id="demo-phone-score">Score: 0</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Floating Glassmorphic Dart Code Card -->
+          <div class="floating-dart-card" id="demo-dart-card">
+            <div class="dart-card-header">
+              <div style="display: flex; align-items: center; gap: 6px;">
+                <span class="dart-card-dot"></span>
+                <span>Dart Code</span>
+              </div>
+              <span style="font-size: 8px; color: #94a3b8;">Flutter 3</span>
+            </div>
+            <pre class="dart-card-code"><code>onPressed: () {
+  setState(() {
+    message = &quot;Hello, Bubble!&quot;;
+  });
+}</code></pre>
+          </div>
+
+          <!-- Vertical Micro Text on Far Right -->
+          <div class="hero-vertical-meta">
+            <div class="hero-vertical-words">
+              <div>DRAG</div>
+              <div>CONNECT</div>
+              <div>LEARN</div>
+              <div>BUILD</div>
+            </div>
+            <div style="transform: rotate(90deg); transform-origin: left bottom; white-space: nowrap; margin-top: 50px;">
+              01 &nbsp; TURN IDEAS INTO APPS
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: The 3 Core Pillars -->
+  <section class="section-features" id="features">
+    <div class="landing-container">
+      <div class="section-head-center">
+        <div class="section-tag">How Bubble Works</div>
+        <h2 class="section-headline">A Developer Environment Built for Beginners</h2>
+        <p class="section-subtext">
+          Bubble doesn't hide the code behind proprietary walls. It connects visual blocks, live mobile rendering, and standard Dart code into one cohesive learning loop.
+        </p>
+      </div>
+
+      <div class="features-pillars-grid">
+        <!-- Pillar 1 -->
+        <div class="pillar-card">
+          <div class="pillar-icon-box" style="background-color: #ede9fe; color: #7c3aed;">🧩</div>
+          <h3 class="pillar-title">1. Connect Visual Blocks</h3>
+          <p class="pillar-desc">
+            Snap together statements, variables, logic branches, and Flutter widgets with zero syntax errors. Puzzle notches ensure only compatible blocks connect.
+          </p>
+        </div>
+
+        <!-- Pillar 2 -->
+        <div class="pillar-card">
+          <div class="pillar-icon-box" style="background-color: #e0f2fe; color: #0284c7;">📱</div>
+          <h3 class="pillar-title">2. Live Mobile Simulator</h3>
+          <p class="pillar-desc">
+            Watch your mobile app respond in real-time inside a realistic phone frame. Tap buttons, input text, and trigger state changes instantly.
+          </p>
+        </div>
+
+        <!-- Pillar 3 -->
+        <div class="pillar-card">
+          <div class="pillar-icon-box" style="background-color: #dcfce7; color: #16a34a;">📜</div>
+          <h3 class="pillar-title">3. Learn Real Dart Code</h3>
+          <p class="pillar-desc">
+            Bubble translates your block programs into clean, standard Flutter <code>main.dart</code> code with source-mapping highlights and guided explanations.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: Guided Starter Apps -->
+  <section class="section-features" id="templates" style="background-color: #f1ede5;">
+    <div class="landing-container">
+      <div class="section-head-center">
+        <div class="section-tag">Starter Projects</div>
+        <h2 class="section-headline">Start with Proven Mobile Apps</h2>
+        <p class="section-subtext">
+          Jump right in with guided mini-projects designed to introduce mobile app concepts progressively.
+        </p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px;">
+        <div class="pillar-card" style="padding: 24px;">
+          <div style="font-size: 32px; margin-bottom: 8px;">👋</div>
+          <h4 style="font-size: 18px; font-weight: 700; margin: 0 0 6px 0;">Hello World</h4>
+          <p style="font-size: 13px; color: #64748b; margin: 0 0 16px 0;">Master the Flutter Scaffold, AppBar, styled Text, and greeting buttons.</p>
+          <a href="editor.html" class="btn-explore-templates" style="padding: 8px 16px; font-size: 13px; text-align: center;">Open Starter →</a>
+        </div>
+
+        <div class="pillar-card" style="padding: 24px;">
+          <div style="font-size: 32px; margin-bottom: 8px;">🔢</div>
+          <h4 style="font-size: 18px; font-weight: 700; margin: 0 0 6px 0;">Counter App</h4>
+          <p style="font-size: 13px; color: #64748b; margin: 0 0 16px 0;">The iconic Flutter classic. Learn state variables and setState() screen updates.</p>
+          <a href="editor.html" class="btn-explore-templates" style="padding: 8px 16px; font-size: 13px; text-align: center;">Open Starter →</a>
+        </div>
+
+        <div class="pillar-card" style="padding: 24px;">
+          <div style="font-size: 32px; margin-bottom: 8px;">🧮</div>
+          <h4 style="font-size: 18px; font-weight: 700; margin: 0 0 6px 0;">Calculator</h4>
+          <p style="font-size: 13px; color: #64748b; margin: 0 0 16px 0;">Handle arithmetic operators, numerical state, and calculator buttons.</p>
+          <a href="editor.html" class="btn-explore-templates" style="padding: 8px 16px; font-size: 13px; text-align: center;">Open Starter →</a>
+        </div>
+
+        <div class="pillar-card" style="padding: 24px;">
+          <div style="font-size: 32px; margin-bottom: 8px;">🔑</div>
+          <h4 style="font-size: 18px; font-weight: 700; margin: 0 0 6px 0;">Login Form</h4>
+          <p style="font-size: 13px; color: #64748b; margin: 0 0 16px 0;">Capture user input with TextFields and show alert feedback.</p>
+          <a href="editor.html" class="btn-explore-templates" style="padding: 8px 16px; font-size: 13px; text-align: center;">Open Starter →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: FAQ -->
+  <section class="section-features" id="faq">
+    <div class="landing-container" style="max-width: 820px;">
+      <div class="section-head-center">
+        <div class="section-tag">Frequently Asked Questions</div>
+        <h2 class="section-headline">Everything You Need to Know</h2>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <div class="pillar-card" style="padding: 24px;">
+          <h4 style="font-size: 16px; font-weight: 700; margin-bottom: 8px;">Do I need to install Flutter or an Android SDK to use Bubble?</h4>
+          <p style="font-size: 14px; color: #525c56; margin: 0;">No! Bubble runs 100% inside your web browser. You can design apps, connect blocks, and run the mobile simulator without installing anything.</p>
+        </div>
+
+        <div class="pillar-card" style="padding: 24px;">
+          <h4 style="font-size: 16px; font-weight: 700; margin-bottom: 8px;">Can I export real Dart code to run on my actual phone?</h4>
+          <p style="font-size: 14px; color: #525c56; margin: 0;">Yes! With one click you can download <code>main.dart</code> and open it in VS Code or Android Studio to compile it for iOS and Android.</p>
+        </div>
+
+        <div class="pillar-card" style="padding: 24px;">
+          <h4 style="font-size: 16px; font-weight: 700; margin-bottom: 8px;">Where are my projects saved?</h4>
+          <p style="font-size: 14px; color: #525c56; margin: 0;">All your projects are saved privately in your browser's Local Storage. You can also export and import full JSON project backups anytime.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner Box -->
+  <section class="section-cta-banner">
+    <div class="landing-container">
+      <div class="cta-banner-box">
+        <div class="cta-banner-text">
+          <h2>Ready to Build Your First Mobile App?</h2>
+          <p>Join thousands of beginners learning visual programming and Flutter Dart today. Free, private, and runs directly in your browser.</p>
+        </div>
+        <div class="cta-banner-actions">
+          <a href="editor.html" class="btn-start-building" style="background-color: #ffffff; color: #121815;">
+            <span>Start Building Now</span>
+            <span>→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="landing-footer">
+    <div class="landing-container">
+      <div class="footer-content">
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <span style="font-weight: 800; color: #121815;">B</span>
+          <span>BUBBLE &bull; Visual Mobile App & Dart Learning Platform</span>
+        </div>
+        <div>
+          <span>© 2026 Bubble. Built with HTML, CSS & Vanilla JavaScript.</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Interactive Demo Script for Landing Page Hero -->
+  <script>
+    (function () {
+      let score = 0;
+      const phoneBtn = document.getElementById('demo-phone-tap-btn');
+      const phoneMsg = document.getElementById('demo-phone-msg');
+      const phoneScore = document.getElementById('demo-phone-score');
+      const dartCard = document.getElementById('demo-dart-card');
+      const tabletRunBtn = document.getElementById('btn-tablet-run-demo');
+
+      const messages = [
+        'Awesome tap! 🎉',
+        'State updated live! ⚡',
+        'Flutter setState() fired!',
+        'You built an interactive app!',
+        'Hello, Bubble! 📱'
+      ];
+
+      function triggerDemoTap() {
+        score++;
+        const nextMsg = messages[(score - 1) % messages.length];
+        phoneMsg.textContent = nextMsg;
+        phoneScore.textContent = 'Score: ' + score;
+
+        // Animate pulse on Dart code card
+        if (dartCard) {
+          dartCard.style.transform = 'scale(1.05)';
+          dartCard.style.boxShadow = '0 25px 40px -5px rgba(99, 102, 241, 0.35)';
+          setTimeout(() => {
+            dartCard.style.transform = '';
+            dartCard.style.boxShadow = '';
+          }, 300);
+        }
+      }
+
+      if (phoneBtn) phoneBtn.addEventListener('click', triggerDemoTap);
+      if (tabletRunBtn) tabletRunBtn.addEventListener('click', triggerDemoTap);
+    })();
+  </script>
+</body>
+</html>

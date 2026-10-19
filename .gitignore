@@ -1,0 +1,86 @@
+# ==============================================================================
+# BUBBLE - .gitignore
+# Prevents unnecessary dependencies, logs, OS files, and editor caches from being committed.
+# ==============================================================================
+
+# 1. Dependencies
+node_modules/
+package-lock.json.backup
+
+# 2. Environment Variables & Secrets
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.pem
+*.key
+
+# 3. Logs & Process Artifacts
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+*.log
+
+# 4. Operating System Artifacts
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msm
+*.msp
+*.lnk
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+
+# 5. Editor & IDE Caches
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+.project
+.settings/
+.buildpath
+.gemini/
+
+# 6. Temporary Files & Local Exports
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+export/
+*.zip
+!js/vendor/*.zip

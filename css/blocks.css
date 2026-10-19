@@ -1,0 +1,253 @@
+/* ==========================================================================
+   BUBBLE - Visual Programming Blocks & Sockets Styles
+   Blockly & Scratch inspired interlocking puzzle shapes, C-clamps, and connectors
+   ========================================================================== */
+
+/* Workspace Root Area */
+.workspace-canvas-surface {
+  flex: 1;
+  min-height: 100%;
+  padding: 32px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.workspace-canvas-surface.drag-over-surface {
+  background-color: rgba(2, 132, 199, 0.05);
+}
+
+.workspace-empty-state {
+  min-height: 480px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border: 2px dashed #cbd5e1;
+  border-radius: 16px;
+  padding: 40px 20px;
+  background-color: #ffffff;
+}
+
+.blocks-stack-root {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+/* Individual Visual Block */
+.vblock {
+  position: relative;
+  user-select: none;
+  cursor: grab;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.08));
+}
+
+.vblock:hover {
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
+  transform: translateY(-1px);
+}
+
+.vblock:active {
+  cursor: grabbing;
+}
+
+.vblock.is-dragging {
+  opacity: 0.4;
+}
+
+.vblock.selected .vblock-head {
+  outline: 3px solid #f59e0b !important;
+  outline-offset: 1px;
+}
+
+/* Block Head / Statement Bar */
+.vblock-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  position: relative;
+}
+
+/* Puzzle Notch Top/Bottom Simulator */
+.vblock-head::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: 24px;
+  width: 18px;
+  height: 5px;
+  background-color: inherit;
+  border-radius: 2px 2px 0 0;
+}
+
+.vblock-head::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 24px;
+  width: 18px;
+  height: 5px;
+  background-color: inherit;
+  border-radius: 0 0 2px 2px;
+  z-index: 2;
+}
+
+.vblock-icon {
+  font-size: 16px;
+}
+
+.vblock-title {
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.vblock-field-summary {
+  background: rgba(0, 0, 0, 0.2);
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-family: var(--font-mono);
+  color: #f1f5f9;
+  max-width: 240px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Block Mini Tool Buttons */
+.vblock-tools {
+  margin-left: auto;
+  display: flex;
+  gap: 2px;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.vblock:hover .vblock-tools, .vblock.selected .vblock-tools {
+  opacity: 1;
+}
+
+.vblock-tool-btn {
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  font-size: 11px;
+  cursor: pointer;
+  border: none;
+}
+
+.vblock-tool-btn:hover {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+/* C-Shaped Clamp Bracket for Nested Statements */
+.vblock-clamp {
+  display: flex;
+  flex-direction: column;
+}
+
+.vblock-clamp .vblock-head {
+  border-bottom-left-radius: 0;
+}
+
+.block-clamp-mouth {
+  border-left: 12px solid var(--block-color, #0284c7);
+  padding: 8px 8px 8px 16px;
+  background-color: rgba(2, 132, 199, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-height: 44px;
+  position: relative;
+}
+
+.block-clamp-bottom {
+  height: 12px;
+  width: 120px;
+  border-radius: 0 0 8px 8px;
+  position: relative;
+}
+
+.block-clamp-bottom::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 24px;
+  width: 18px;
+  height: 5px;
+  background-color: inherit;
+  border-radius: 0 0 2px 2px;
+}
+
+.block-drop-hint {
+  font-size: 11px;
+  color: #94a3b8;
+  font-style: italic;
+  padding: 6px 12px;
+  border: 1px dashed #cbd5e1;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.drop-into-clamp .block-clamp-mouth {
+  background-color: rgba(245, 158, 11, 0.15) !important;
+  border-left-color: #f59e0b !important;
+}
+
+/* Visual Block Library Palettes */
+.block-library-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: grab;
+  user-select: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  position: relative;
+}
+
+.block-library-item:hover {
+  transform: translateX(3px);
+  filter: brightness(1.08);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.block-library-item:active {
+  cursor: grabbing;
+}
+
+.block-lib-add-btn {
+  margin-left: auto;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  line-height: 1;
+}
+
+.block-library-item:hover .block-lib-add-btn {
+  display: flex;
+}

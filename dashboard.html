@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bubble — Flutter Mobile App Dashboard</title>
+  <meta name="description" content="Visual block-based mobile app development dashboard. Manage your Flutter apps, explore guided starter templates, and launch the block editor.">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body class="dashboard-page">
+
+  <!-- Top Navigation -->
+  <header class="dashboard-nav">
+    <div style="display: flex; align-items: center; gap: 20px;">
+      <a href="index.html" class="brand-wrapper" title="Bubble Home">
+        <span class="brand-logo-icon">B</span>
+        <span class="brand-text">BUBBLE</span>
+      </a>
+      <span class="badge" style="background-color: #ede7dc; color: #525c56; font-weight: 700; border-radius: 9999px; padding: 4px 10px;">Flutter & Dart Studio</span>
+    </div>
+
+    <div class="dashboard-nav-actions">
+      <a href="index.html" class="btn-nav-home">← Home</a>
+      <input type="file" id="import-file-input" accept=".json" style="display: none;" />
+      <button class="btn-dash-import" id="btn-import-project" title="Import an App Project JSON">
+        <span>📥 Import JSON</span>
+      </button>
+      <button class="btn-dash-new-app" id="btn-new-project">
+        <span>+ New Flutter App</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="dashboard-content">
+    
+    <!-- Hero Banner in Forest Green Matching Landing Page -->
+    <section class="dashboard-hero">
+      <div class="hero-text">
+        <h1>Build Flutter Apps with Blocks</h1>
+        <p>Design real mobile apps by connecting visual logic and UI widget blocks. As you snap blocks together, Bubble live-simulates your phone screen and generates standard, clean <strong>Dart</strong> code.</p>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat-card">
+          <div class="hero-stat-value" id="stat-total-projects">0</div>
+          <div class="hero-stat-label">Saved Apps</div>
+        </div>
+        <div class="hero-stat-card">
+          <div class="hero-stat-value">Flutter 3</div>
+          <div class="hero-stat-label">Target Syntax</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Guided Starter Apps Gallery -->
+    <section class="templates-section">
+      <div class="section-header">
+        <h2 class="section-title">
+          <span>⚡ Guided Starter Apps & Tutorials</span>
+        </h2>
+      </div>
+      <div class="templates-grid" id="templates-container">
+        <!-- Rendered dynamically by dashboard.js -->
+      </div>
+    </section>
+
+    <!-- Your Saved Apps Header & Search Toolbar -->
+    <section class="projects-section">
+      <div class="projects-toolbar">
+        <h2 class="section-title">
+          <span>📱 Your Flutter Mobile Apps</span>
+        </h2>
+        <div class="search-input-wrapper">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="search-projects-input" placeholder="Search saved apps..." />
+        </div>
+      </div>
+
+      <!-- Apps Grid -->
+      <div class="projects-grid" id="projects-grid" style="margin-top: 24px;">
+        <!-- Rendered dynamically by dashboard.js -->
+      </div>
+
+      <!-- Empty State -->
+      <div class="empty-state" id="projects-empty-state" style="display: none; margin-top: 24px; background: #ffffff; border: 2px dashed var(--color-dash-border); border-radius: 24px; padding: 50px 20px; text-align: center;">
+        <div style="font-size: 40px; margin-bottom: 8px;">📱</div>
+        <div style="font-size: 18px; font-weight: 700; color: var(--color-text-main); margin-bottom: 6px;">No Mobile Apps Found</div>
+        <div style="font-size: 14px; color: var(--color-text-muted); margin-bottom: 16px;">You don't have any saved apps matching your search. Create a new Flutter app or pick a starter tutorial above!</div>
+        <button class="btn-dash-new-app" onclick="window.currentBubbleDashboard.openNewProjectModal()">Create Flutter App</button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Modal: Create New App -->
+  <div class="modal-backdrop" id="modal-create-project">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-title">
+          <span>✨ Create New Mobile App</span>
+        </div>
+        <button class="btn btn-subtle btn-sm" id="btn-cancel-create">✕</button>
+      </div>
+      <form id="form-create-project">
+        <div class="modal-body">
+          <div class="form-group">
+            <label class="form-label" for="input-project-name">Mobile App Name</label>
+            <input type="text" id="input-project-name" class="form-input" placeholder="e.g. My Flutter Counter" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="select-project-template">Choose App Starter Project</label>
+            <select id="select-project-template" class="form-select">
+              <option value="counter_app" selected>🔢 Flutter Counter App (Classic Starter)</option>
+              <option value="hello_world">👋 Hello World Greeting App</option>
+              <option value="calculator_app">🧮 Simple Calculator App</option>
+              <option value="login_form">🔑 Mobile Login Form UI</option>
+              <option value="todo_app">📝 Task Tracker & To-Do List</option>
+              <option value="blank_app">📱 Blank Flutter App</option>
+            </select>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" onclick="document.getElementById('modal-create-project').classList.remove('active')">Cancel</button>
+          <button type="submit" class="btn-dash-new-app">Open in Block Studio →</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal: Rename App -->
+  <div class="modal-backdrop" id="modal-rename-project">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-title">
+          <span>✏️ Rename App</span>
+        </div>
+        <button class="btn btn-subtle btn-sm" id="btn-cancel-rename">✕</button>
+      </div>
+      <form id="form-rename-project">
+        <div class="modal-body">
+          <div class="form-group">
+            <label class="form-label" for="input-rename-project">New App Name</label>
+            <input type="text" id="input-rename-project" class="form-input" required />
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" onclick="document.getElementById('modal-rename-project').classList.remove('active')">Cancel</button>
+          <button type="submit" class="btn-dash-new-app">Save Changes</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal: Delete Confirmation -->
+  <div class="modal-backdrop" id="modal-delete-project">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-title" style="color: var(--color-danger);">
+          <span>⚠️ Delete Mobile App</span>
+        </div>
+        <button class="btn btn-subtle btn-sm" id="btn-cancel-delete">✕</button>
+      </div>
+      <div class="modal-body">
+        <p style="font-size: 15px; color: var(--color-text-main); margin-bottom: 8px;">
+          Are you sure you want to permanently delete <strong id="delete-project-name">this app</strong>?
+        </p>
+        <p style="font-size: 13px; color: var(--color-text-muted);">
+          All visual blocks and saved state variables will be permanently removed from Local Storage.
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" onclick="document.getElementById('modal-delete-project').classList.remove('active')">Keep App</button>
+        <button type="button" class="btn btn-danger" id="btn-confirm-delete">Permanently Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/vendor/jszip.min.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/block-definitions.js"></script>
+  <script src="js/dart-generator.js"></script>
+  <script src="js/tutorials.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

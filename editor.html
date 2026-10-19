@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bubble — Visual Mobile App & Dart Studio</title>
+  <meta name="description" content="Visual block-based mobile app development and learning platform that teaches beginners app development through blocks and Dart code generation.">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/blocks.css">
+  <link rel="stylesheet" href="css/phone.css">
+  <link rel="stylesheet" href="css/editor.css">
+</head>
+<body class="editor-app">
+
+  <!-- 1. Top Editor Toolbar -->
+  <header class="editor-toolbar">
+    <div class="toolbar-left">
+      <a href="dashboard.html" class="btn btn-secondary btn-sm" title="Return to Dashboard">
+        <span>← App Dashboard</span>
+      </a>
+
+      <div class="toolbar-divider"></div>
+
+      <div class="brand-logo-icon" style="width: 26px; height: 26px; font-size: 14px; background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);">📱</div>
+      <div id="editor-project-title" class="project-title-editor" title="Click to rename project">My Flutter App</div>
+
+      <div class="save-status-pill" id="save-status-pill">
+        <span class="save-dot" style="background-color: var(--color-success);"></span>
+        <span id="save-status-text">All changes saved</span>
+      </div>
+    </div>
+
+    <!-- Center Toolbar: Undo/Redo, Mini-Project Selector -->
+    <div class="toolbar-center">
+      <div style="display: flex; gap: 2px;">
+        <button class="btn btn-secondary btn-sm" id="btn-undo" title="Undo (Ctrl+Z)" disabled>
+          <span>↩</span>
+        </button>
+        <button class="btn btn-secondary btn-sm" id="btn-redo" title="Redo (Ctrl+Y)" disabled>
+          <span>↪</span>
+        </button>
+      </div>
+
+      <div class="toolbar-divider"></div>
+
+      <!-- Quick Guided Mini-Project Template Selector -->
+      <div style="display: flex; align-items: center; gap: 6px;">
+        <span style="font-size: 12px; font-weight: 600; color: var(--color-text-muted);">Starter App:</span>
+        <select id="select-tutorial-template" class="form-select" style="padding: 4px 8px; font-size: 12px; width: 170px;">
+          <option value="">Load Template...</option>
+          <option value="hello_world">👋 Hello World</option>
+          <option value="counter_app">🔢 Counter App</option>
+          <option value="calculator_app">🧮 Calculator App</option>
+          <option value="login_form">🔑 Login Form</option>
+          <option value="todo_app">📝 To-Do List</option>
+          <option value="blank_app">📱 Blank App</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Right Toolbar: Code Explorer Toggle, Learn Guide, Download Dart -->
+    <div class="toolbar-right">
+      <button class="btn btn-primary btn-sm" id="btn-toggle-code-explorer" title="Inspect Generated Flutter Dart Code">
+        <span>&lt;/&gt; Generated Dart</span>
+      </button>
+
+      <button class="btn btn-secondary btn-sm" id="btn-open-learn-mode" title="Flutter & Dart Concept Guides">
+        <span>💡 Tutorials</span>
+      </button>
+
+      <button class="btn btn-secondary btn-sm" id="btn-export-dart" title="Download main.dart file for Flutter">
+        <span>⬇ main.dart</span>
+      </button>
+
+      <button class="btn btn-subtle btn-sm" id="btn-export-json" title="Download Project JSON Backup">
+        <span>💾 JSON</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- 2. Main 4-Area Editor Body -->
+  <div class="editor-body">
+
+    <!-- Area 1: Left Panel — Dart Block Library -->
+    <aside class="editor-sidebar-left" style="width: 280px;">
+      <div style="padding: 12px 14px; border-bottom: 1px solid var(--color-border); font-size: 13px; font-weight: 700; color: var(--color-text-main); display: flex; align-items: center; justify-content: space-between;">
+        <span>🧩 Dart Block Library</span>
+        <span class="badge badge-accent">Flutter</span>
+      </div>
+
+      <div class="library-search-box">
+        <input type="text" id="library-search-input" class="form-input" placeholder="Search blocks & widgets..." />
+      </div>
+
+      <div class="library-content" id="block-library-categories">
+        <!-- Rendered dynamically by editor.js with 12 categories -->
+      </div>
+    </aside>
+
+    <!-- Area 2: Center Panel — Visual Block Workspace -->
+    <main class="editor-canvas-container" style="padding: 0; background-color: #f8fafc;">
+      <div class="workspace-canvas-surface" id="workspace-canvas-surface">
+        <!-- Connected visual blocks with puzzle notches & C-clamps -->
+      </div>
+    </main>
+
+    <!-- Area 3: Right Panel — Live Mobile Preview & Properties Inspector -->
+    <aside class="phone-preview-panel">
+      <div class="preview-panel-header">
+        <div style="font-size: 13px; font-weight: 700; color: var(--color-text-main);">Live Phone Simulator</div>
+        <div class="preview-badge-flutter">Interactive</div>
+      </div>
+
+      <!-- Smartphone Bezel Mockup -->
+      <div class="mobile-device-chassis">
+        <div class="mobile-screen">
+          <!-- Status Bar -->
+          <div class="mobile-status-bar">
+            <span>9:41</span>
+            <div class="status-notch"></div>
+            <div class="status-icons">5G ■</div>
+          </div>
+
+          <!-- Interactive Simulated Screen -->
+          <div id="mobile-screen-content" style="flex: 1; display: flex; flex-direction: column; overflow: hidden; position: relative;">
+            <!-- Rendered by mobile-preview.js -->
+          </div>
+        </div>
+        <!-- Home indicator -->
+        <div class="mobile-home-indicator"></div>
+      </div>
+
+      <!-- Block Property Editor Accordion / Drawer below Phone -->
+      <div id="inspector-container" style="width: 100%; margin-top: 24px; border-top: 1px solid var(--color-border); padding-top: 16px;">
+        <!-- Rendered by properties.js -->
+      </div>
+    </aside>
+
+    <!-- Area 4: Bottom Collapsible Panel — Dart Code Explorer -->
+    <section class="code-explorer-drawer open" id="code-explorer-drawer">
+      <div class="code-drawer-header">
+        <div class="code-tabs">
+          <button class="code-tab-btn active" data-tab="dart">📄 main.dart (Flutter)</button>
+          <button class="code-tab-btn" data-tab="explanations">🎓 How this Code Works</button>
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <span style="font-size: 11px; color: #94a3b8;">Synchronized with visual blocks</span>
+          <button class="btn btn-subtle btn-sm" id="btn-copy-dart-code" style="color: #cbd5e1;" title="Copy to clipboard">📋 Copy Dart</button>
+          <button class="btn btn-subtle btn-sm" id="btn-download-dart-file" style="color: #cbd5e1;" title="Download main.dart">⬇ Download</button>
+          <button class="btn btn-subtle btn-sm" id="btn-close-code-drawer" style="color: #cbd5e1;" title="Toggle code drawer">✕</button>
+        </div>
+      </div>
+      <div class="code-viewer-container" id="code-viewer-container">
+        <!-- Rendered with syntax highlighting and source mapping -->
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Modal: Guided Tutorials & Learn Mode -->
+  <div class="modal-backdrop" id="learn-modal">
+    <div class="modal-card learn-modal-card">
+      <div class="modal-header">
+        <div class="modal-title">
+          <span>🎓 Flutter & Dart App Studio Tutorials</span>
+        </div>
+        <button class="btn btn-subtle btn-sm" id="btn-close-learn-modal">✕</button>
+      </div>
+      <div class="modal-body" id="learn-modal-body">
+        <!-- Guided projects loaded here -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" onclick="document.getElementById('learn-modal').classList.remove('active')">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/vendor/jszip.min.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/block-definitions.js"></script>
+  <script src="js/dart-generator.js"></script>
+  <script src="js/tutorials.js"></script>
+  <script src="js/dart-learn.js"></script>
+  <script src="js/history.js"></script>
+  <script src="js/mobile-preview.js"></script>
+  <script src="js/block-workspace.js"></script>
+  <script src="js/properties.js"></script>
+  <script src="js/code-explorer.js"></script>
+  <script src="js/editor.js"></script>
+</body>
+</html>
