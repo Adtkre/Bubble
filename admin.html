@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Portal — Bubble Visual Platform</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/auth.css">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body class="admin-body">
+
+  <!-- Admin Guard Overlay (Shown if user is not authenticated as admin) -->
+  <div id="admin-guard" class="admin-guard-overlay" style="display: none;">
+    <div class="admin-guard-card">
+      <div class="admin-guard-icon">🔒</div>
+      <h2>Administrator Access Required</h2>
+      <p>This portal is reserved for Bubble administrators to monitor user registrations, active sessions, and database analytics.</p>
+      <div class="auth-admin-hint" style="margin-bottom: 1.5rem; text-align: left;">
+        <strong>Default Admin Credentials:</strong><br>
+        Email: <code>admin@bubble.dev</code><br>
+        Password: <code>admin123</code>
+      </div>
+      <div style="display: flex; gap: 0.75rem; justify-content: center;">
+        <button class="btn-admin-login" id="btn-guard-login">Sign In as Admin</button>
+        <a href="/dashboard.html" class="btn btn-secondary btn-sm" style="display: flex; align-items: center;">Return to App</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Top Navigation Bar -->
+  <header class="admin-navbar">
+    <div class="admin-nav-left">
+      <a href="/dashboard.html" class="admin-logo">
+        <span>🫧</span>
+        <span>BUBBLE</span>
+      </a>
+      <span class="admin-shield-badge">🛡️ Admin Console</span>
+      <div class="admin-db-status" id="db-status-pill">
+        <span class="db-dot"></span>
+        <span id="db-status-text">Database Connected</span>
+      </div>
+    </div>
+
+    <div class="admin-nav-right">
+      <button class="btn btn-secondary btn-sm" id="btn-refresh-data" title="Refresh data">
+        🔄 Refresh
+      </button>
+      <a href="/dashboard.html" class="btn btn-ghost btn-sm">
+        📱 App Dashboard
+      </a>
+      <div id="auth-nav-container"></div>
+    </div>
+  </header>
+
+  <!-- Main Content Container -->
+  <main class="admin-container">
+    <div class="admin-title-row">
+      <div>
+        <h1>Security & User Intelligence Portal</h1>
+        <p>Monitor registrations, live user logins, app creation activity, and database health.</p>
+      </div>
+      <div>
+        <span style="font-size: 0.85rem; color: var(--admin-text-muted);" id="last-updated-text">
+          Live syncing...
+        </span>
+      </div>
+    </div>
+
+    <!-- KPI Metric Overview Cards -->
+    <div class="admin-kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-icon-wrap kpi-blue">👥</div>
+        <div class="kpi-info">
+          <div class="kpi-value" id="kpi-total-users">-</div>
+          <div class="kpi-label">Registered Accounts</div>
+        </div>
+      </div>
+
+      <div class="kpi-card">
+        <div class="kpi-icon-wrap kpi-green">⚡</div>
+        <div class="kpi-info">
+          <div class="kpi-value" id="kpi-active-today">-</div>
+          <div class="kpi-label">Active Users (24h)</div>
+        </div>
+      </div>
+
+      <div class="kpi-card">
+        <div class="kpi-icon-wrap kpi-purple">📱</div>
+        <div class="kpi-info">
+          <div class="kpi-value" id="kpi-total-apps">-</div>
+          <div class="kpi-label">Total Apps Created</div>
+        </div>
+      </div>
+
+      <div class="kpi-card">
+        <div class="kpi-icon-wrap kpi-amber">🔑</div>
+        <div class="kpi-info">
+          <div class="kpi-value" id="kpi-recent-logins">-</div>
+          <div class="kpi-label">Logins (Past 24h)</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Real-Time User Activity & Audit Stream -->
+    <section class="admin-section">
+      <div class="admin-section-header">
+        <h2>
+          <span>🕒</span>
+          <span>Live User Login & Registration Audit Trail</span>
+        </h2>
+        <div class="admin-filters">
+          <input type="text" id="log-search-input" class="admin-search-input" placeholder="Search by email or IP..." />
+          <select id="log-filter-action" class="admin-select">
+            <option value="all">All Events</option>
+            <option value="login">Logins Only</option>
+            <option value="signup">Signups Only</option>
+          </select>
+        </div>
+      </div>
+      <div class="admin-table-wrap">
+        <table class="admin-table" id="table-logs">
+          <thead>
+            <tr>
+              <th>Timestamp</th>
+              <th>Action</th>
+              <th>User / Email</th>
+              <th>IP Address</th>
+              <th>Device & Browser</th>
+            </tr>
+          </thead>
+          <tbody id="logs-table-body">
+            <tr>
+              <td colspan="5" class="admin-empty-state">Loading audit logs...</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Registered Accounts Management -->
+    <section class="admin-section">
+      <div class="admin-section-header">
+        <h2>
+          <span>👤</span>
+          <span>Registered Users & App Ownership</span>
+        </h2>
+        <div class="admin-filters">
+          <input type="text" id="user-search-input" class="admin-search-input" placeholder="Search users by name or email..." />
+          <select id="user-filter-role" class="admin-select">
+            <option value="all">All Roles</option>
+            <option value="admin">Admins Only</option>
+            <option value="user">Standard Users</option>
+          </select>
+        </div>
+      </div>
+      <div class="admin-table-wrap">
+        <table class="admin-table" id="table-users">
+          <thead>
+            <tr>
+              <th>User Profile</th>
+              <th>Role</th>
+              <th>Apps Built</th>
+              <th>Created Date</th>
+              <th>Last Login</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="users-table-body">
+            <tr>
+              <td colspan="6" class="admin-empty-state">Loading users list...</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Cloud Database Infrastructure Info -->
+    <section class="admin-section" style="padding: 1.5rem;">
+      <h3 style="margin-top: 0; color: #fff; display: flex; align-items: center; gap: 0.5rem;">
+        <span>☁️</span> Vercel & Database Infrastructure
+      </h3>
+      <p style="color: var(--admin-text-muted); font-size: 0.9rem; line-height: 1.6; margin-bottom: 1rem;">
+        Bubble uses a dual-engine database architecture designed for instant local development and scalable Vercel cloud deployment.
+      </p>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1rem;">
+        <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--admin-border); border-radius: 0.75rem; padding: 1rem;">
+          <h4 style="margin: 0 0 0.5rem; color: #818cf8;">🚀 Deploying to Vercel</h4>
+          <p style="font-size: 0.85rem; color: var(--admin-text-muted); margin: 0 0 0.5rem;">
+            1. Push code to GitHub and link repository on <a href="https://vercel.com" target="_blank" style="color: #60a5fa;">Vercel</a>.<br>
+            2. On Vercel dashboard, go to <strong>Storage</strong> and create a <strong>Postgres (Neon)</strong> database.<br>
+            3. Vercel automatically sets <code>POSTGRES_URL</code> environment variable, activating the SQL engine.
+          </p>
+        </div>
+        <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--admin-border); border-radius: 0.75rem; padding: 1rem;">
+          <h4 style="margin: 0 0 0.5rem; color: #34d399;">💻 Local Development Mode</h4>
+          <p style="font-size: 0.85rem; color: var(--admin-text-muted); margin: 0;">
+            When running locally with <code>npm start</code> without Postgres credentials, the engine persists data directly to <code>data/bubble_db.json</code>, keeping your accounts and audit logs completely functional offline.
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Scripts -->
+  <script src="js/auth.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

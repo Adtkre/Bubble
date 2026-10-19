@@ -71,6 +71,23 @@
 
       try {
         window.localStorage.setItem(STORAGE_KEYS.PROJECTS, JSON.stringify(projects));
+
+        // Background Cloud Database Sync if user is authenticated
+        if (window.AuthClient && window.AuthClient.getToken()) {
+          fetch('/api/projects', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${window.AuthClient.getToken()}`
+            },
+            body: JSON.stringify({
+              id: project.id,
+              name: project.name,
+              blocks: project.blocks || []
+            })
+          }).catch(err => console.warn('Cloud database sync offline / skipped:', err));
+        }
+
         return project;
       } catch (err) {
         if (err.name === 'QuotaExceededError' || err.code === 22) {
@@ -87,6 +104,17 @@
 
       try {
         window.localStorage.setItem(STORAGE_KEYS.PROJECTS, JSON.stringify(filtered));
+
+        // Background Cloud Database deletion
+        if (window.AuthClient && window.AuthClient.getToken()) {
+          fetch(`/api/projects?id=${encodeURIComponent(id)}`, {
+            method: 'DELETE',
+            headers: {
+              'Authorization': `Bearer ${window.AuthClient.getToken()}`
+            }
+          }).catch(err => console.warn('Cloud database delete offline / skipped:', err));
+        }
+
         return true;
       } catch (err) {
         console.error('Error deleting project:', err);
