@@ -6,12 +6,6 @@
 (function (window) {
   'use strict';
 
-  const STORAGE_KEYS = {
-    PROJECTS: 'bubble.apps.v1',
-    SETTINGS: 'bubble.app_settings.v1',
-    CURRENT_APP_ID: 'bubble.active_app_id.v1'
-  };
-
   const Storage = {
     isAvailable() {
       try {
@@ -24,11 +18,71 @@
       }
     },
 
+    getActiveUserId() {
+      try {
+        if (window.AuthClient && typeof window.AuthClient.getUser === 'function') {
+          const u = window.AuthClient.getUser();
+          if (u && (u.id || u.email)) {
+            return String(u.id || u.email);
+          }
+        }
+        if (window.localStorage) {
+          const raw = window.localStorage.getItem('bubble_user');
+          if (raw) {
+            const parsed = JSON.parse(raw);
+            if (parsed && (parsed.id || parsed.email)) {
+              return String(parsed.id || parsed.email);
+            }
+          }
+        }
+      } catch (e) {}
+      return 'guest';
+    },
+
+    getProjectsKey() {
+      const uid = this.getActiveUserId();
+      return uid === 'guest' ? 'bubble.apps.v1.guest' : `bubble.apps.v1.${uid}`;
+    },
+
+    getCurrentAppKey() {
+      const uid = this.getActiveUserId();
+      return uid === 'guest' ? 'bubble.active_app_id.v1.guest' : `bubble.active_app_id.v1.${uid}`;
+    },
+
+    getSettingsKey() {
+      const uid = this.getActiveUserId();
+      return uid === 'guest' ? 'bubble.app_settings.v1.guest' : `bubble.app_settings.v1.${uid}`;
+    },
+
+    migrateLegacyProjectsIfNeeded(targetKey) {
+      if (!this.isAvailable()) return;
+      try {
+        const legacyRaw = window.localStorage.getItem('bubble.apps.v1');
+        if (!legacyRaw) return;
+
+        const currentRaw = window.localStorage.getItem(targetKey);
+        // If current user's isolated storage is empty, migrate legacy data over to this user
+        if (!currentRaw) {
+          const parsed = JSON.parse(legacyRaw);
+          if (Array.isArray(parsed) && parsed.length > 0) {
+            window.localStorage.setItem(targetKey, legacyRaw);
+          }
+        }
+        // Remove legacy global key so other accounts (Admin, Account B) start clean
+        window.localStorage.removeItem('bubble.apps.v1');
+      } catch (e) {
+        console.warn('Legacy project migration check:', e);
+      }
+    },
+
     getAllProjects() {
       if (!this.isAvailable()) return [];
 
       try {
-        const raw = window.localStorage.getItem(STORAGE_KEYS.PROJECTS);
+        const key = this.getProjectsKey();
+        this.migrateLegacyProjectsIfNeeded(key);
+
+        const raw = window.localStorage.getItem(key);
         if (!raw) return [];
 
         const parsed = JSON.parse(raw);
@@ -55,13 +109,16 @@
         throw new Error('Invalid project: Missing project ID.');
       }
 
-      const projects = this.getAllProjects();
-      const existingIdx = projects.findIndex(p => p.id === project.id);
-
+      const uid = this.getActiveUserId();
+      project.userId = project.userId || uid;
       project.updatedAt = new Date().toISOString();
       if (!project.createdAt) {
         project.createdAt = project.updatedAt;
       }
+
+      const key = this.getProjectsKey();
+      const projects = this.getAllProjects();
+      const existingIdx = projects.findIndex(p => p.id === project.id);
 
       if (existingIdx >= 0) {
         projects[existingIdx] = project;
@@ -70,7 +127,7 @@
       }
 
       try {
-        window.localStorage.setItem(STORAGE_KEYS.PROJECTS, JSON.stringify(projects));
+        window.localStorage.setItem(key, JSON.stringify(projects));
 
         // Background Cloud Database Sync if user is authenticated
         if (window.AuthClient && window.AuthClient.getToken()) {
@@ -99,11 +156,12 @@
 
     deleteProject(id) {
       if (!id) return false;
+      const key = this.getProjectsKey();
       const projects = this.getAllProjects();
       const filtered = projects.filter(p => p.id !== id);
 
       try {
-        window.localStorage.setItem(STORAGE_KEYS.PROJECTS, JSON.stringify(filtered));
+        window.localStorage.setItem(key, JSON.stringify(filtered));
 
         // Background Cloud Database deletion
         if (window.AuthClient && window.AuthClient.getToken()) {
@@ -120,6 +178,81 @@
         console.error('Error deleting project:', err);
         return false;
       }
+    },
+
+    syncCloudProjects(cloudProjects) {
+      if (!Array.isArray(cloudProjects)) return this.getAllProjects();
+      const key = this.getProjectsKey();
+      const local = this.getAllProjects();
+
+      const cloudMap = new Map();
+      cloudProjects.forEach(cp => {
+        if (cp && cp.id) {
+          cloudMap.set(cp.id, {
+            id: cp.id,
+            name: cp.name,
+            blocks: cp.blocks || [],
+            createdAt: cp.createdAt || cp.created_at || new Date().toISOString(),
+            updatedAt: cp.updatedAt || cp.updated_at || new Date().toISOString()
+          });
+        }
+      });
+
+      // Retain any locally created projects not yet uploaded
+      local.forEach(lp => {
+        if (lp && lp.id) {
+          if (!cloudMap.has(lp.id)) {
+            cloudMap.set(lp.id, lp);
+            if (window.AuthClient && window.AuthClient.getToken()) {
+              fetch('/api/projects', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                  'Authorization': `Bearer ${window.AuthClient.getToken()}`
+                },
+                body: JSON.stringify({
+                  id: lp.id,
+                  name: lp.name,
+                  blocks: lp.blocks || []
+                })
+              }).catch(() => {});
+            }
+          } else {
+            const cp = cloudMap.get(lp.id);
+            const lpTime = new Date(lp.updatedAt || 0).getTime();
+            const cpTime = new Date(cp.updatedAt || 0).getTime();
+            if (lpTime > cpTime) {
+              cloudMap.set(lp.id, lp);
+            }
+          }
+        }
+      });
+
+      const merged = Array.from(cloudMap.values()).sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt));
+      try {
+        window.localStorage.setItem(key, JSON.stringify(merged));
+      } catch (e) {}
+      return merged;
+    },
+
+    async fetchCloudProjects() {
+      if (!window.AuthClient || !window.AuthClient.getToken()) return this.getAllProjects();
+      try {
+        const res = await fetch('/api/projects', {
+          headers: {
+            'Authorization': `Bearer ${window.AuthClient.getToken()}`
+          }
+        });
+        if (res.ok) {
+          const data = await res.json();
+          if (data.ok && Array.isArray(data.projects)) {
+            return this.syncCloudProjects(data.projects);
+          }
+        }
+      } catch (err) {
+        console.warn('Could not sync cloud projects:', err);
+      }
+      return this.getAllProjects();
     },
 
     duplicateProject(id) {
@@ -195,7 +328,8 @@
 
     getCurrentProjectId() {
       try {
-        return window.localStorage.getItem(STORAGE_KEYS.CURRENT_APP_ID) || null;
+        const key = this.getCurrentAppKey();
+        return window.localStorage.getItem(key) || null;
       } catch (e) {
         return null;
       }
@@ -203,10 +337,11 @@
 
     setCurrentProjectId(id) {
       try {
+        const key = this.getCurrentAppKey();
         if (id) {
-          window.localStorage.setItem(STORAGE_KEYS.CURRENT_APP_ID, id);
+          window.localStorage.setItem(key, id);
         } else {
-          window.localStorage.removeItem(STORAGE_KEYS.CURRENT_APP_ID);
+          window.localStorage.removeItem(key);
         }
       } catch (e) {
         console.error(e);

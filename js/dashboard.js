@@ -14,11 +14,10 @@
       this.pendingRenameId = null;
     }
 
-    init() {
+    async init() {
       if (!this.checkAuth()) return;
-      this.loadProjects();
       this.setupEventListeners();
-      this.render();
+      await this.loadProjects();
     }
 
     checkAuth() {
@@ -32,9 +31,21 @@
       return true;
     }
 
-    loadProjects() {
+    async loadProjects() {
+      // 1. Immediately display user-isolated local projects
       this.projects = window.BubbleStorage.getAllProjects();
-      // Starts strictly at 0 if user hasn't created any apps yet
+      this.render();
+
+      // 2. Fetch and synchronize user's cloud projects from database
+      if (window.AuthClient && window.AuthClient.getToken()) {
+        try {
+          const synced = await window.BubbleStorage.fetchCloudProjects();
+          this.projects = synced;
+          this.render();
+        } catch (e) {
+          console.warn('Dashboard cloud project sync:', e);
+        }
+      }
     }
 
     setupEventListeners() {
@@ -267,7 +278,7 @@
 
       grid.innerHTML = filtered.map(p => {
         const blockCount = (p.blocks || []).length;
-        const dateStr = window.BubbleUtils.formatDate(p.updatedAt || p.createdAt);
+        const dateStr = window.BubbleUtils.formatDate(p.updatedAt || p.createdAt || p.updated_at || p.created_at);
 
         return `
           <div class="project-card" data-project-id="${p.id}">
