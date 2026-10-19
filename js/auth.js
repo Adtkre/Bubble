@@ -95,11 +95,7 @@
 
     logout() {
       this.clearSession();
-      if (window.location.pathname.includes('admin.html')) {
-        window.location.href = '/dashboard.html';
-      } else {
-        window.location.reload();
-      }
+      window.location.href = 'index.html';
     },
 
     async checkSession() {
@@ -263,14 +259,15 @@
         btn.disabled = true;
         try {
           await this.login(email, password);
-          showAlert('Login successful! Redirecting...', false);
+          showAlert('Login successful! Redirecting to dashboard...', false);
           setTimeout(() => {
             modal.style.display = 'none';
-            if (this.isAdmin() && !window.location.pathname.includes('admin.html')) {
-              // Stay on current or refresh
+            if (window.location.pathname.includes('admin.html') && this.isAdmin()) {
+              window.location.reload();
+            } else if (window.location.pathname.includes('dashboard.html')) {
               window.location.reload();
             } else {
-              window.location.reload();
+              window.location.href = 'dashboard.html';
             }
           }, 600);
         } catch (err) {
@@ -292,10 +289,14 @@
         btn.disabled = true;
         try {
           await this.signup(name, email, password);
-          showAlert('Account created! Welcome to Bubble.', false);
+          showAlert('Account created! Redirecting to dashboard...', false);
           setTimeout(() => {
             modal.style.display = 'none';
-            window.location.reload();
+            if (window.location.pathname.includes('dashboard.html')) {
+              window.location.reload();
+            } else {
+              window.location.href = 'dashboard.html';
+            }
           }, 700);
         } catch (err) {
           showAlert(err.message || 'Signup failed.');
