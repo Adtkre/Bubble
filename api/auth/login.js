@@ -67,6 +67,6 @@ module.exports = async function handler(req, res) {
     });
   } catch (err) {
     console.error('Login error:', err);
-    return sendJson(res, 500, { error: 'Internal server error during authentication.' });
+    return sendJson(res, 500, { error: err.message || 'Internal server error during authentication.' });
   }
 };
