@@ -126,19 +126,19 @@
 
       return `
         <tr>
-          <td style="color: #94a3b8; font-size: 0.82rem; white-space: nowrap;">
+          <td style="color: var(--admin-text-muted); font-size: 0.82rem; white-space: nowrap;">
             ${formatTime(log.created_at)}
           </td>
           <td>${actionBadge}</td>
           <td>
-            <strong style="color: #fff;">${log.email}</strong>
+            <strong style="color: #ffffff;">${log.email}</strong>
           </td>
           <td>
-            <code style="background: rgba(255,255,255,0.06); padding: 0.2rem 0.45rem; border-radius: 4px; font-size: 0.8rem;">
+            <code class="admin-code-ip">
               ${log.ip_address || '127.0.0.1'}
             </code>
           </td>
-          <td style="color: #cbd5e1; font-size: 0.82rem;">
+          <td style="color: var(--admin-text-secondary); font-size: 0.82rem;">
             ${parseUserAgent(log.user_agent)}
           </td>
         </tr>
@@ -210,18 +210,18 @@
             </span>
           </td>
           <td>
-            <span style="font-weight: 700; color: #818cf8;">${u.total_projects || 0}</span> apps
+            <span style="font-weight: 700; color: #ffffff;">${u.total_projects || 0}</span> apps
           </td>
-          <td style="color: #94a3b8; font-size: 0.82rem;">
+          <td style="color: var(--admin-text-muted); font-size: 0.82rem;">
             ${formatTime(u.created_at)}
           </td>
-          <td style="color: #cbd5e1; font-size: 0.82rem;">
+          <td style="color: var(--admin-text-secondary); font-size: 0.82rem;">
             ${formatTime(u.last_login_at)}
           </td>
           <td>
             ${isSelf
-              ? '<span style="color: #64748b; font-size: 0.78rem;">(Your account)</span>'
-              : `<button class="btn btn-ghost btn-sm" onclick="window.toggleUserRole('${u.id}', '${isAdmin ? 'user' : 'admin'}')">
+              ? '<span style="color: var(--admin-text-muted); font-size: 0.78rem;">(Your account)</span>'
+              : `<button class="btn-table-action" onclick="window.toggleUserRole('${u.id}', '${isAdmin ? 'user' : 'admin'}')">
                   ${isAdmin ? 'Demote to User' : 'Promote to Admin'}
                 </button>`
             }
