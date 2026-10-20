@@ -1,7 +1,7 @@
 /* ==========================================================================
    BUBBLE - Dashboard Neo-Brutalist Redesign
-   Matching project signature: Warm beige (#f7f4ee), solid charcoal borders (#121815),
-   editorial Fraunces serif headlines, bold retro accents (#ea580c), and big 3-per-row bento boxes.
+   Warm beige (#f7f4ee), distinct retro checkers grid, solid charcoal borders (#121815),
+   editorial Fraunces serif headlines, bold retro accents (#ea580c), and 3-per-row bento boxes.
    ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700;800&display=swap');
@@ -28,12 +28,15 @@
   --shadow-pill: 2px 2px 0px #121815;
 }
 
-body.dashboard-page {
-  background-color: var(--color-dash-bg);
+/* Distinct Retro Checkers / Grid Pattern on Dashboard Page */
+html, body.dashboard-page {
+  background-color: #f7f4ee !important;
   background-image: 
-    linear-gradient(rgba(18, 24, 21, 0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(18, 24, 21, 0.035) 1px, transparent 1px);
-  background-size: 36px 36px;
+    linear-gradient(to right, rgba(18, 24, 21, 0.095) 1.2px, transparent 1.2px),
+    linear-gradient(to bottom, rgba(18, 24, 21, 0.095) 1.2px, transparent 1.2px) !important;
+  background-size: 36px 36px !important;
+  background-position: 0 0 !important;
+  background-repeat: repeat !important;
   color: var(--color-text-main);
   font-family: var(--font-sans);
   min-height: 100vh;
@@ -202,8 +205,8 @@ body.dashboard-page {
 .dashboard-hero {
   background-color: var(--color-dark-green);
   background-image: 
-    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
   background-size: 28px 28px;
   border: 2.5px solid var(--color-border-dark);
   border-radius: 28px;
@@ -308,21 +311,6 @@ body.dashboard-page {
   margin: 0;
 }
 
-.section-title-icon {
-  width: 32px;
-  height: 32px;
-  background-color: #ffffff;
-  color: var(--color-accent-orange);
-  border: 2px solid var(--color-border-dark);
-  box-shadow: 2px 2px 0px var(--color-border-dark);
-  border-radius: 8px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 15px;
-  font-weight: 900;
-}
-
 .section-tag-pill {
   background: var(--color-beige-darker);
   border: 2px solid var(--color-border-dark);
@@ -368,14 +356,15 @@ body.dashboard-page {
   box-shadow: 2px 2px 0px var(--color-border-dark);
 }
 
-/* Bento Preview Area */
+/* Bento Preview Area with Crisp Checkers Pattern */
 .template-preview {
   height: 185px;
-  background-color: var(--color-dash-bg);
+  background-color: var(--color-beige-darker);
   background-image: 
-    linear-gradient(rgba(18, 24, 21, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(18, 24, 21, 0.05) 1px, transparent 1px);
-  background-size: 20px 20px;
+    linear-gradient(to right, rgba(18, 24, 21, 0.09) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(18, 24, 21, 0.09) 1px, transparent 1px);
+  background-size: 22px 22px;
+  background-repeat: repeat;
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -643,13 +632,15 @@ body.dashboard-page {
   box-shadow: var(--shadow-bento-hover);
 }
 
+/* Project Card Header with matching Checkers Grid Stage */
 .project-card-header {
   height: 160px;
-  background-color: var(--color-dark-green);
+  background-color: var(--color-beige-darker);
   background-image: 
-    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-  background-size: 24px 24px;
+    linear-gradient(to right, rgba(18, 24, 21, 0.09) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(18, 24, 21, 0.09) 1px, transparent 1px);
+  background-size: 22px 22px;
+  background-repeat: repeat;
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -771,8 +762,8 @@ body.dashboard-page {
 .modal-card {
   background-color: var(--color-dash-bg);
   background-image: 
-    linear-gradient(rgba(18, 24, 21, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(18, 24, 21, 0.04) 1px, transparent 1px);
+    linear-gradient(rgba(18, 24, 21, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(18, 24, 21, 0.06) 1px, transparent 1px);
   background-size: 28px 28px;
   border: 2.5px solid var(--color-border-dark);
   border-radius: 28px;
