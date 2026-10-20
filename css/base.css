@@ -179,6 +179,16 @@ img {
   color: var(--color-text-main);
 }
 
+.btn-ghost {
+  background-color: transparent;
+  color: var(--color-text-main);
+  border: 1px solid var(--color-border);
+}
+
+.btn-ghost:hover:not(:disabled) {
+  background-color: var(--color-surface-hover);
+}
+
 .btn-danger {
   background-color: var(--color-danger);
   color: var(--color-text-inverse);

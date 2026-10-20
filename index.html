@@ -11,194 +11,210 @@
 </head>
 <body class="landing-body">
 
-  <!-- Top Navigation -->
-  <header class="landing-nav">
-    <div class="landing-container" style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
-      <a href="index.html" class="landing-brand">
-        <span class="brand-glyph">B</span>
-        <span class="brand-name">BUBBLE</span>
-      </a>
-
-      <nav>
-        <ul class="landing-nav-links">
-          <li><a href="#hero">Home</a></li>
-          <li><a href="#features">Features</a></li>
-          <li><a href="dashboard.html">Templates</a></li>
-          <li><a href="#learn">Learn</a></li>
-          <li><a href="#community">Community</a></li>
-          <li><a href="#faq">FAQ</a></li>
-        </ul>
-      </nav>
-
-      <div style="display: flex; align-items: center; gap: 12px;">
-        <div id="auth-nav-container"></div>
-        <a href="editor.html" class="btn-get-started-nav">Get Started →</a>
-      </div>
-    </div>
-  </header>
-
-  <!-- Hero Section -->
+  <!-- Hero Master Console Section -->
   <section class="hero-wrapper" id="hero">
-    <!-- Curved Dark Green Fluid Shape in Background -->
-    <div class="hero-bg-curved-green"></div>
+    <div class="landing-container hero-screen-container">
+      
+      <!-- Retro Console Frame Card -->
+      <div class="retro-hero-card">
 
-    <div class="landing-container">
-      <div class="hero-grid">
-        
-        <!-- Left Hero Content -->
-        <div class="hero-left">
-          <div class="hero-badge-tag">Visual Coding for App Development</div>
-          
-          <h1 class="hero-title">
-            Build Mobile<br>
-            Apps with<br>
-            Blocks
-          </h1>
+        <!-- Top Navigation Bar Inside Frame -->
+        <header class="retro-hero-nav">
+          <!-- Left: Nav Pills -->
+          <nav class="retro-nav-pill-group">
+            <a href="#hero" class="retro-nav-pill active">Console</a>
+            <a href="#features" class="retro-nav-pill">Features</a>
+            <a href="dashboard.html" class="retro-nav-pill">Templates</a>
+            <a href="#faq" class="retro-nav-pill">Docs</a>
+          </nav>
 
-          <p class="hero-description">
-            Create real Flutter apps by connecting visual blocks. Learn Dart step by step and see your app come to life instantly.
-          </p>
+          <!-- Center: Brand Logo -->
+          <a href="index.html" class="retro-nav-brand">
+            <span class="retro-brand-icon">❖</span>
+            <span class="retro-brand-text">BUBBLE</span>
+          </a>
 
-          <div class="hero-cta-group">
-            <a href="editor.html" class="btn-start-building">
-              <span>Start Building</span>
-              <span>→</span>
-            </a>
-            <a href="dashboard.html" class="btn-explore-templates">Explore Templates</a>
+          <!-- Right: Auth Container (Log In & Sign Up) -->
+          <div class="retro-nav-right">
+            <div id="auth-nav-container"></div>
           </div>
+        </header>
 
-          <div class="hero-trust-bar">
-            <span>No setup required</span>
-            <span class="divider">|</span>
-            <span>Works in your Browser</span>
-            <span class="divider">|</span>
-            <span>Beginner Friendly</span>
-          </div>
-        </div>
+        <!-- Big Subtle Watermark Typography Behind Centerpiece -->
+        <div class="retro-watermark-text" aria-hidden="true">BUBBLE</div>
 
-        <!-- Right Hero 3D Stage Composition -->
-        <div class="hero-visual-stage">
-          
-          <!-- Floating Pastel Purple Gadget -->
-          <div class="floating-purple-gadget" title="Interactive visual programming block">
-            <span>⟡</span>
-          </div>
+        <!-- 3-Column Retro Stage Layout -->
+        <div class="retro-stage-layout">
 
-          <!-- Main Visual Editor Dark Tablet Window -->
-          <div class="editor-tablet-window">
-            <div class="tablet-titlebar">
-              <div class="tablet-titlebar-left">
-                <div class="tablet-icon-b">B</div>
-                <div class="tablet-project-name">My First App</div>
-              </div>
-              <div class="tablet-titlebar-right">
-                <span style="color: #64748b; font-size: 11px;">↩ ↪</span>
-                <button class="btn-tablet-run" id="btn-tablet-run-demo">
-                  <span>▶</span>
-                  <span>Run ▾</span>
-                </button>
-              </div>
+          <!-- Left Column: Tag, Headline, Giant BUILD, CTA Buttons -->
+          <div class="retro-col-left">
+            <div class="retro-headline-block">
+              <div class="retro-tag-year"><span class="orange-slash">/</span> 2026</div>
+              <h1 class="retro-hero-title">
+                A Pocket-Sized<br>
+                App Builder<br>
+                A Premium Design
+              </h1>
             </div>
 
-            <div class="tablet-body">
-              <!-- Left Categories -->
-              <div class="tablet-sidebar">
-                <div class="tablet-cat-pill active">● UI Widgets</div>
-                <div class="tablet-cat-pill">● Events</div>
-                <div class="tablet-cat-pill">● Variables</div>
-                <div class="tablet-cat-pill">● Logic</div>
-                <div class="tablet-cat-pill">● Loops</div>
-                <div class="tablet-cat-pill">● Functions</div>
-                <div class="tablet-cat-pill">● Navigation</div>
-                <div class="tablet-cat-pill">● Data Types</div>
-                <div class="tablet-cat-pill">● Lists</div>
-                <div class="tablet-cat-pill">● Math</div>
-                <div class="tablet-cat-pill">● More</div>
+            <div class="retro-bottom-left-action">
+              <div class="retro-giant-word">BUILD</div>
+              <div class="retro-cta-buttons">
+                <a href="editor.html" class="btn-retro-orange">Start Building</a>
+                <a href="dashboard.html" class="btn-retro-outline">Templates</a>
               </div>
+            </div>
+          </div>
 
-              <!-- Center Block Workspace -->
-              <div class="tablet-workspace">
-                <!-- 1. Hat Block: When screen tapped -->
-                <div class="hero-block-hat">when Screen is tapped</div>
-
-                <!-- 2. Statement: jump bird -->
-                <div class="hero-block-cyan">jump bird with velocity -4.7</div>
-
-                <!-- 3. Statement: play sound -->
-                <div class="hero-block-purple-action">play sound <span style="background: rgba(0,0,0,0.25); padding: 1px 4px; border-radius: 3px;">&quot;flap.wav&quot;</span></div>
-
-                <!-- 4. C-Block: if passed pipe -->
-                <div class="hero-block-if-clamp">
-                  <div class="hero-block-if-head">
-                    <span>if</span>
-                    <span class="pill-operand">passed pipe</span>
+          <!-- Center Column: IDE Tablet & Phone Mockup with Ground Shadows -->
+          <div class="retro-col-center">
+            <div class="center-stage-composition">
+              
+              <!-- Tablet IDE with Ground Shadows -->
+              <div class="tablet-wrapper">
+                <!-- Main Visual Editor Dark Tablet Window -->
+                <div class="editor-tablet-window" id="demo-tablet-window">
+                  <div class="tablet-titlebar">
+                    <div class="tablet-titlebar-left">
+                      <div class="tablet-icon-b">B</div>
+                      <div class="tablet-project-name">My First App</div>
+                    </div>
+                    <div class="tablet-titlebar-right">
+                      <span style="color: #64748b; font-size: 11px;">↩ ↪</span>
+                      <button class="btn-tablet-run" id="btn-tablet-run-demo">
+                        <span>▶</span>
+                        <span>Run ▾</span>
+                      </button>
+                    </div>
                   </div>
-                  <div class="hero-block-purple-action" style="margin-left: 4px;">score += 1</div>
-                  <div class="hero-block-else-head">else if hit obstacle</div>
-                  <div class="hero-block-purple-action" style="margin-left: 4px;">trigger &quot;game_over&quot;</div>
+
+                  <div class="tablet-body">
+                    <!-- Left Categories -->
+                    <div class="tablet-sidebar">
+                      <div class="tablet-cat-pill active">● UI Widgets</div>
+                      <div class="tablet-cat-pill">● Events</div>
+                      <div class="tablet-cat-pill">● Variables</div>
+                      <div class="tablet-cat-pill">● Logic</div>
+                      <div class="tablet-cat-pill">● Loops</div>
+                      <div class="tablet-cat-pill">● Functions</div>
+                      <div class="tablet-cat-pill">● Navigation</div>
+                      <div class="tablet-cat-pill">● Data Types</div>
+                      <div class="tablet-cat-pill">● Lists</div>
+                      <div class="tablet-cat-pill">● Math</div>
+                      <div class="tablet-cat-pill">● More</div>
+                    </div>
+
+                    <!-- Center Block Workspace -->
+                    <div class="tablet-workspace">
+                      <!-- 1. Hat Block: When screen tapped -->
+                      <div class="hero-block-hat">when Screen is tapped</div>
+
+                      <!-- 2. Statement: jump bird -->
+                      <div class="hero-block-cyan">jump bird with velocity -4.7</div>
+
+                      <!-- 3. Statement: play sound -->
+                      <div class="hero-block-purple-action">play sound <span style="background: rgba(0,0,0,0.25); padding: 1px 4px; border-radius: 3px;">&quot;flap.wav&quot;</span></div>
+
+                      <!-- 4. C-Block: if passed pipe -->
+                      <div class="hero-block-if-clamp">
+                        <div class="hero-block-if-head">
+                          <span>if</span>
+                          <span class="pill-operand">passed pipe</span>
+                        </div>
+                        <div class="hero-block-purple-action" style="margin-left: 4px;">score += 1</div>
+                        <div class="hero-block-else-head">else if hit obstacle</div>
+                        <div class="hero-block-purple-action" style="margin-left: 4px;">trigger &quot;game_over&quot;</div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
+                <!-- Big Dark Oval Ground Shadow Underneath IDE -->
+                <div class="hero-big-ground-shadow"></div>
+                <div class="hero-big-contact-shadow"></div>
               </div>
+
+              <!-- Smartphone Mockup with Ground Shadows -->
+              <div class="phone-wrapper">
+                <div class="hero-phone-mockup" id="demo-phone-mockup">
+                  <div class="phone-inner-screen">
+                    <div class="phone-screen-topbar">
+                      <span>9:41</span>
+                      <div style="display: flex; gap: 6px; align-items: center;">
+                        <span id="flappy-sound-toggle" style="cursor: pointer; display: flex; align-items: center; color: #475569;" title="Toggle Sound">
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+                        </span>
+                        <span>5G ■</span>
+                      </div>
+                    </div>
+                    <div class="phone-app-header">
+                      <div class="phone-app-title" style="display: flex; align-items: center; gap: 5px;">
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg>
+                        <span>Flappy Bird</span>
+                      </div>
+                      <div id="phone-best-score-badge" style="font-size: 9px; font-weight: 700; color: #b45309; background: #fef3c7; border: 1px solid #fde68a; padding: 1px 6px; border-radius: 9999px;">BEST: 0</div>
+                    </div>
+                    <div class="phone-game-wrapper">
+                      <canvas id="flappy-canvas"></canvas>
+                    </div>
+                  </div>
+                </div>
+                <!-- Big Dark Oval Ground Shadow Directly Below Phone -->
+                <div class="phone-big-ground-shadow"></div>
+                <div class="phone-big-contact-shadow"></div>
+              </div>
+
             </div>
           </div>
 
-          <!-- Realistic Smartphone Foreground Mockup with Playable Flappy Bird -->
-          <div class="hero-phone-mockup" id="demo-phone-mockup">
-            <div class="phone-inner-screen">
-              <div class="phone-screen-topbar">
-                <span>9:41</span>
-                <div style="display: flex; gap: 6px; align-items: center;">
-                  <span id="flappy-sound-toggle" style="cursor: pointer; display: flex; align-items: center; color: #475569;" title="Toggle Sound">
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
-                  </span>
-                  <span>5G ■</span>
+          <!-- Right Column: Floating Dart Code Preview, Vertical Icons, Desc, Giant APPS -->
+          <div class="retro-col-right">
+            
+            <!-- Top Right Mini Code Card with ↗ button -->
+            <div class="retro-mini-preview-card" id="demo-dart-card">
+              <div class="mini-card-topbar">
+                <div class="mini-card-tag">
+                  <span class="mini-card-dot"></span>
+                  <span>Dart Code</span>
                 </div>
+                <a href="editor.html" class="mini-card-open-btn" title="Open Code Editor">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                </a>
               </div>
-              <div class="phone-app-header">
-                <div class="phone-app-title" style="display: flex; align-items: center; gap: 5px;">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg>
-                  <span>Flappy Bird</span>
-                </div>
-                <div id="phone-best-score-badge" style="font-size: 9px; font-weight: 700; color: #b45309; background: #fef3c7; border: 1px solid #fde68a; padding: 1px 6px; border-radius: 9999px;">BEST: 0</div>
-              </div>
-              <div class="phone-game-wrapper">
-                <canvas id="flappy-canvas"></canvas>
-              </div>
-            </div>
-          </div>
-
-          <!-- Floating Glassmorphic Dart Code Card -->
-          <div class="floating-dart-card" id="demo-dart-card">
-            <div class="dart-card-header">
-              <div style="display: flex; align-items: center; gap: 6px;">
-                <span class="dart-card-dot"></span>
-                <span>Dart Code</span>
-              </div>
-              <span style="font-size: 8px; color: #94a3b8;">Flutter 3</span>
-            </div>
-            <pre class="dart-card-code"><code>void flap() {
+              <pre class="mini-card-code"><code>void flap() {
   setState(() {
     birdVelocity = -4.7;
     score++;
   });
 }</code></pre>
-          </div>
+            </div>
 
-          <!-- Vertical Micro Text on Far Right -->
-          <div class="hero-vertical-meta">
-            <div class="hero-vertical-words">
-              <div>DRAG</div>
-              <div>CONNECT</div>
-              <div>LEARN</div>
-              <div>BUILD</div>
+            <!-- Floating Vertical Icons Pill on Far Right -->
+            <div class="retro-vertical-pill">
+              <div class="vertical-pill-icon active" title="Flutter 3">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2L2 12l10 10 10-10L12 2z"/></svg>
+              </div>
+              <div class="vertical-pill-icon" title="Visual Blocks">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+              </div>
+              <div class="vertical-pill-icon" title="Mobile Simulator">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+              </div>
             </div>
-            <div style="transform: rotate(90deg); transform-origin: left bottom; white-space: nowrap; margin-top: 50px;">
-              01 &nbsp; TURN IDEAS INTO APPS
+
+            <!-- Bottom Right: Description and Giant APPS -->
+            <div class="retro-bottom-right-content">
+              <p class="retro-desc-text">
+                Connect visual blocks, live mobile simulator, and production Dart code into one seamless learning loop.
+              </p>
+              <div class="retro-giant-word right">APPS</div>
             </div>
+
           </div>
 
         </div>
 
       </div>
+
     </div>
   </section>
 
@@ -216,7 +232,7 @@
       <div class="features-pillars-grid">
         <!-- Pillar 1 -->
         <div class="pillar-card">
-          <div class="pillar-icon-box" style="background-color: #ede9fe; color: #7c3aed;">
+          <div class="pillar-icon-box">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19.439 7.85c-.049-.913-.772-1.637-1.685-1.686a2.235 2.235 0 0 1-2.128-2.128c-.049-.913-.773-1.637-1.686-1.686C13.027 2.3 12 3.1 12 4.1a2 2 0 0 1-4 0c0-1-.973-1.8-1.94-1.75-.913.049-1.637.773-1.686 1.686A2.235 2.235 0 0 1 2.246 6.164c-.913.049-1.637.773-1.686 1.686.05 1 .85 2.05 1.85 2.05a2 2 0 0 1 0 4c-1 0-1.8.95-1.85 1.95.049.913.773 1.637 1.686 1.686a2.235 2.235 0 0 1 2.128 2.128c.049.913.773 1.637 1.686 1.686.967.05 1.94-.75 1.94-1.75a2 2 0 0 1 4 0c0 1 1.027 1.8 1.94 1.75.913-.049 1.637-.773 1.686-1.686a2.235 2.235 0 0 1 2.128-2.128c.913-.049 1.637-.773 1.686-1.686-.05-1-.85-1.95-1.85-1.95a2 2 0 0 1 0-4c1 0 1.8-1.05 1.85-2.05z"/></svg>
           </div>
           <h3 class="pillar-title">1. Connect Visual Blocks</h3>
@@ -227,7 +243,7 @@
 
         <!-- Pillar 2 -->
         <div class="pillar-card">
-          <div class="pillar-icon-box" style="background-color: #e0f2fe; color: #0284c7;">
+          <div class="pillar-icon-box">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>
           </div>
           <h3 class="pillar-title">2. Live Mobile Simulator</h3>
@@ -238,7 +254,7 @@
 
         <!-- Pillar 3 -->
         <div class="pillar-card">
-          <div class="pillar-icon-box" style="background-color: #dcfce7; color: #16a34a;">
+          <div class="pillar-icon-box">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
           </div>
           <h3 class="pillar-title">3. Learn Real Dart Code</h3>
@@ -251,7 +267,7 @@
   </section>
 
   <!-- Section: Guided Starter Apps -->
-  <section class="section-features" id="templates" style="background-color: #f1ede5;">
+  <section class="section-features" id="templates">
     <div class="landing-container">
       <div class="section-head-center">
         <div class="section-tag">Starter Projects</div>
@@ -263,7 +279,7 @@
 
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px;">
         <div class="pillar-card" style="padding: 24px;">
-          <div class="pillar-icon-box" style="background-color: #fef3c7; color: #d97706; margin-bottom: 12px;">
+          <div class="pillar-icon-box" style="margin-bottom: 14px;">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-9.33-5"/><path d="m14 15 4-4"/><path d="m14 15-4-4"/><path d="M2 13h10"/><circle cx="12" cy="13" r="8"/></svg>
           </div>
           <h4 style="font-size: 18px; font-weight: 700; margin: 0 0 6px 0;">Hello World</h4>
@@ -272,7 +288,7 @@
         </div>
 
         <div class="pillar-card" style="padding: 24px;">
-          <div class="pillar-icon-box" style="background-color: #dbeafe; color: #2563eb; margin-bottom: 12px;">
+          <div class="pillar-icon-box" style="margin-bottom: 14px;">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="9" y2="9"/><line x1="4" x2="20" y1="15" y2="15"/><line x1="10" x2="8" y1="3" y2="21"/><line x1="16" x2="14" y1="3" y2="21"/></svg>
           </div>
           <h4 style="font-size: 18px; font-weight: 700; margin: 0 0 6px 0;">Counter App</h4>
@@ -281,7 +297,7 @@
         </div>
 
         <div class="pillar-card" style="padding: 24px;">
-          <div class="pillar-icon-box" style="background-color: #f3e8ff; color: #9333ea; margin-bottom: 12px;">
+          <div class="pillar-icon-box" style="margin-bottom: 14px;">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="20" x="4" y="2" rx="2"/><line x1="8" x2="16" y1="6" y2="6"/><line x1="16" x2="16" y1="14" y2="18"/><path d="M16 10h.01"/><path d="M12 10h.01"/><path d="M8 10h.01"/><path d="M12 14h.01"/><path d="M8 14h.01"/><path d="M12 18h.01"/><path d="M8 18h.01"/></svg>
           </div>
           <h4 style="font-size: 18px; font-weight: 700; margin: 0 0 6px 0;">Calculator</h4>
@@ -290,7 +306,7 @@
         </div>
 
         <div class="pillar-card" style="padding: 24px;">
-          <div class="pillar-icon-box" style="background-color: #ffedd5; color: #ea580c; margin-bottom: 12px;">
+          <div class="pillar-icon-box" style="margin-bottom: 14px;">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21 2-2 2m-1.5 1.5L14 9l-4.5 4.5a5 5 0 1 1-7-7L7 2l3.5 3.5 1.5-1.5 2 2 1.5-1.5"/></svg>
           </div>
           <h4 style="font-size: 18px; font-weight: 700; margin: 0 0 6px 0;">Login Form</h4>
@@ -337,10 +353,7 @@
           <p>Join thousands of beginners learning visual programming and Flutter Dart today. Free, private, and runs directly in your browser.</p>
         </div>
         <div class="cta-banner-actions">
-          <a href="editor.html" class="btn-start-building" style="background-color: #ffffff; color: #121815;">
-            <span>Start Building Now</span>
-            <span>→</span>
-          </a>
+          <a href="editor.html" class="btn-retro-orange" style="white-space: nowrap;">Start Building</a>
         </div>
       </div>
     </div>
@@ -381,7 +394,7 @@
 
       // Gate all interactive action buttons and starter template links
       document.querySelectorAll(
-        '.btn-get-started-nav, .btn-start-building, .btn-explore-templates, a[href="dashboard.html"], a[href="editor.html"]'
+        '.btn-start-building, .btn-explore-templates, a[href="dashboard.html"], a[href="editor.html"]'
       ).forEach(el => {
         el.addEventListener('click', (e) => {
           const dest = el.getAttribute('href');
