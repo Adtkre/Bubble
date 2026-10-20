@@ -13,8 +13,8 @@
 /* 1. Top Editor Toolbar */
 .editor-toolbar {
   height: var(--header-height);
-  background-color: var(--color-surface);
-  border-bottom: 1px solid var(--color-border);
+  background-color: #f7f4ee;
+  border-bottom: 1px solid #ded6c5;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -32,7 +32,7 @@
 .toolbar-divider {
   width: 1px;
   height: 24px;
-  background-color: var(--color-border);
+  background-color: #ded6c5;
   margin: 0 var(--space-2);
 }
 
@@ -629,8 +629,8 @@
 .code-explorer-drawer {
   position: absolute;
   bottom: 0;
-  left: 290px;
-  right: 320px;
+  left: 280px;
+  right: 380px !important;
   height: 280px;
   background-color: #0f172a;
   color: #f8fafc;
@@ -641,6 +641,7 @@
   border-top: 1px solid #334155;
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   transform: translateY(100%);
+  overflow: hidden;
 }
 
 .code-explorer-drawer.open {
@@ -810,22 +811,29 @@
   border: none;
 }
 
+/* Syntax Highlighting Tokens (Preserved clean codeblock colors) */
+.dart-kw { color: #c084fc; font-weight: 600; }
+.dart-type { color: #38bdf8; font-weight: 600; }
+.dart-str { color: #a7f3d0; }
+.dart-num { color: #fbbf24; }
+.dart-comment { color: #64748b; font-style: italic; }
+
 /* Responsive adjustments */
 @media (max-width: 1024px) {
   .editor-sidebar-left { width: 240px; }
-  .editor-sidebar-right { width: 280px; }
-  .code-explorer-drawer { left: 240px; right: 280px; }
+  .phone-preview-panel { width: 340px; }
+  .code-explorer-drawer { left: 240px; right: 340px !important; }
 }
 
 @media (max-width: 768px) {
   .editor-body { flex-direction: column; }
-  .editor-sidebar-left, .editor-sidebar-right {
+  .editor-sidebar-left, .phone-preview-panel {
     width: 100%;
     height: 260px;
   }
   .code-explorer-drawer {
     left: 0;
-    right: 0;
+    right: 0 !important;
     height: 220px;
   }
 }

@@ -20,6 +20,7 @@
       this.inspector = null;
 
       this.debouncedSave = window.BubbleUtils.debounce(() => this.saveToStorage(), 500);
+      this.debouncedHistory = window.BubbleUtils.debounce(() => this.history.pushState(this.blocks), 400);
     }
 
     init() {
@@ -414,7 +415,16 @@
       if (!block) return;
 
       block.fields[fieldName] = value;
-      this.onProjectModified();
+      this.project.blocks = this.blocks;
+
+      // Update workspace blocks, phone preview, and code explorer in real-time
+      // without re-rendering the inspector DOM so user never loses input focus
+      this.workspace.render(this.blocks, this.selectedBlockId);
+      this.simulator.update(this.blocks, true);
+      this.codeExplorer.render();
+
+      this.debouncedHistory();
+      this.debouncedSave();
     }
 
     /**

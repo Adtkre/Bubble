@@ -179,51 +179,83 @@
         if (t.id === 'counter_app') {
           miniMockup = `
             <div class="template-mini-phone">
-              <div class="mini-phone-bar" style="background: #0284c7;"></div>
-              <div class="mini-phone-body">
-                <div style="font-size: 8px; font-weight: 700; color: #0284c7; text-align: center; margin-top: 4px;">42</div>
-                <div class="mini-phone-btn" style="background: #0284c7;"></div>
+              <div class="mini-phone-bar" style="background: #0284c7;">
+                <span class="phone-bar-dot"></span>
+                <span class="phone-bar-title">Counter</span>
+              </div>
+              <div class="mini-phone-body" style="align-items: center; justify-content: center; gap: 8px;">
+                <div style="font-size: 24px; font-weight: 900; color: #0284c7; font-family: var(--font-mono, monospace);">42</div>
+                <div class="mini-phone-btn" style="background: #0284c7; width: 70%;">+ Increment</div>
               </div>
             </div>
           `;
         } else if (t.id === 'calculator_app') {
           miniMockup = `
             <div class="template-mini-phone">
-              <div class="mini-phone-bar" style="background: #059669;"></div>
-              <div class="mini-phone-body" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2px; padding: 2px;">
-                <div style="grid-column: span 2; height: 8px; background: #ecfdf5; border-radius: 2px;"></div>
-                <div style="height: 6px; background: #d1fae5; border-radius: 2px;"></div>
-                <div style="height: 6px; background: #d1fae5; border-radius: 2px;"></div>
+              <div class="mini-phone-bar" style="background: #059669;">
+                <span class="phone-bar-dot"></span>
+                <span class="phone-bar-title">Calc</span>
+              </div>
+              <div class="mini-phone-body" style="display: flex; flex-direction: column; gap: 4px; padding: 6px;">
+                <div style="height: 18px; background: #ecfdf5; border: 1px solid #a7f3d0; border-radius: 4px; display: flex; align-items: center; justify-content: flex-end; padding: 0 5px; font-size: 11px; font-weight: 800; color: #065f46; font-family: var(--font-mono, monospace);">1,337</div>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px; flex: 1;">
+                  <div class="calc-key">7</div><div class="calc-key">8</div><div class="calc-key">9</div>
+                  <div class="calc-key">4</div><div class="calc-key">5</div><div class="calc-key">6</div>
+                  <div class="calc-key calc-op">=</div><div class="calc-key">0</div><div class="calc-key calc-op">+</div>
+                </div>
               </div>
             </div>
           `;
         } else if (t.id === 'login_form') {
           miniMockup = `
             <div class="template-mini-phone">
-              <div class="mini-phone-bar" style="background: #4f46e5;"></div>
-              <div class="mini-phone-body">
-                <div class="mini-phone-line" style="margin-top: 4px;"></div>
-                <div class="mini-phone-line" style="width: 60%;"></div>
-                <div class="mini-phone-btn" style="background: #4f46e5;"></div>
+              <div class="mini-phone-bar" style="background: #ea580c;">
+                <span class="phone-bar-dot"></span>
+                <span class="phone-bar-title">Sign In</span>
+              </div>
+              <div class="mini-phone-body" style="justify-content: center; gap: 6px; padding: 10px;">
+                <div class="mini-phone-input"></div>
+                <div class="mini-phone-input"></div>
+                <div class="mini-phone-btn" style="background: #ea580c; width: 100%; margin-top: 4px;">Sign In</div>
               </div>
             </div>
           `;
         } else if (t.id === 'todo_app') {
           miniMockup = `
             <div class="template-mini-phone">
-              <div class="mini-phone-bar" style="background: #7c3aed;"></div>
-              <div class="mini-phone-body">
-                <div style="font-size: 6px; color: #7c3aed; font-weight: 700;">Task 1</div>
-                <div style="font-size: 6px; color: #94a3b8;">○ Task 2</div>
+              <div class="mini-phone-bar" style="background: #7c3aed;">
+                <span class="phone-bar-dot"></span>
+                <span class="phone-bar-title">Tasks</span>
+              </div>
+              <div class="mini-phone-body" style="padding: 8px 6px; gap: 5px;">
+                <div class="mini-todo-item checked">✓ Buy Milk</div>
+                <div class="mini-todo-item checked">✓ Ship Flutter App</div>
+                <div class="mini-todo-item">○ Deploy Bubble</div>
+              </div>
+            </div>
+          `;
+        } else if (t.id === 'hello_world') {
+          miniMockup = `
+            <div class="template-mini-phone">
+              <div class="mini-phone-bar" style="background: #2563eb;">
+                <span class="phone-bar-dot"></span>
+                <span class="phone-bar-title">Hello</span>
+              </div>
+              <div class="mini-phone-body" style="align-items: center; justify-content: center; gap: 6px; text-align: center;">
+                <div style="font-size: 26px;">👋</div>
+                <div style="font-size: 11px; font-weight: 800; color: #1e293b;">Hello, World!</div>
               </div>
             </div>
           `;
         } else {
           miniMockup = `
             <div class="template-mini-phone">
-              <div class="mini-phone-bar" style="background: #0284c7;"></div>
-              <div class="mini-phone-body">
-                <div style="font-size: 14px; text-align: center; margin-top: 6px;">${t.icon}</div>
+              <div class="mini-phone-bar" style="background: #121815;">
+                <span class="phone-bar-dot"></span>
+                <span class="phone-bar-title">Flutter</span>
+              </div>
+              <div class="mini-phone-body" style="align-items: center; justify-content: center;">
+                <div style="font-size: 28px;">${t.icon}</div>
               </div>
             </div>
           `;
@@ -235,12 +267,12 @@
               ${miniMockup}
             </div>
             <div class="template-card-info">
-              <div style="display: flex; align-items: center; justify-content: space-between;">
+              <div class="template-card-header-row">
                 <span class="template-title">${t.icon} ${t.title}</span>
-                <span class="badge" style="background-color: #ede7dc; color: #525c56; font-size: 10px; font-weight: 700; border-radius: 9999px; padding: 2px 8px;">${t.level}</span>
+                <span class="template-badge">${t.level}</span>
               </div>
-              <div class="template-desc">${t.description}</div>
-              <div style="margin-top: 10px; font-size: 12px; font-weight: 700; color: #17241c; display: flex; align-items: center; gap: 4px;">
+              <p class="template-desc">${t.description}</p>
+              <div class="btn-template-start">
                 <span>Start Project</span>
                 <span>→</span>
               </div>
@@ -283,48 +315,48 @@
         return `
           <div class="project-card" data-project-id="${p.id}">
             <div class="project-card-header">
-              <div class="template-mini-phone" style="width: 100px; height: 110px;">
+              <div class="template-mini-phone" style="width: 110px; height: 120px;">
                 <div class="mini-phone-bar" style="background: #0284c7; justify-content: center;">
-                  <span style="font-size: 7px; color: #ffffff; font-weight: 700;">Flutter</span>
+                  <span style="font-size: 8px; color: #ffffff; font-weight: 800;">Flutter</span>
                 </div>
                 <div class="mini-phone-body">
                   <div class="mini-phone-line" style="margin-top: 6px;"></div>
-                  <div class="mini-phone-line" style="width: 50%;"></div>
-                  <div class="mini-phone-btn" style="background: #0284c7; margin-top: auto;"></div>
+                  <div class="mini-phone-line" style="width: 60%;"></div>
+                  <div class="mini-phone-btn" style="background: #0284c7; margin-top: auto;">Open</div>
                 </div>
               </div>
             </div>
             <div class="project-card-body">
               <div class="project-title">
                 <span>${window.BubbleUtils.escapeHtml(p.name)}</span>
-                <span class="badge" style="background-color: #e0f2fe; color: #0284c7; font-size: 10px; font-weight: 700; border-radius: 9999px; padding: 2px 8px;">Flutter 3</span>
+                <span class="template-badge" style="background: #e0f2fe; color: #0284c7;">Flutter 3</span>
               </div>
               <div class="project-meta">
-                <span style="display: inline-flex; align-items: center; gap: 4px;">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                  Updated ${dateStr}
+                <span style="display: inline-flex; align-items: center; gap: 5px;">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  ${dateStr}
                 </span>
                 <span>•</span>
-                <span style="display: inline-flex; align-items: center; gap: 4px;">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19.439 7.85c-.049-.913-.772-1.637-1.685-1.686a2.235 2.235 0 0 1-2.128-2.128c-.049-.913-.773-1.637-1.686-1.686C13.027 2.3 12 3.1 12 4.1a2 2 0 0 1-4 0c0-1-.973-1.8-1.94-1.75-.913.049-1.637.773-1.686 1.686A2.235 2.235 0 0 1 2.246 6.164c-.913.049-1.637.773-1.686 1.686.05 1 .85 2.05 1.85 2.05a2 2 0 0 1 0 4c-1 0-1.8.95-1.85 1.95.049.913.773 1.637 1.686 1.686a2.235 2.235 0 0 1 2.128 2.128c.049.913.773 1.637 1.686 1.686.967.05 1.94-.75 1.94-1.75a2 2 0 0 1 4 0c0 1 1.027 1.8 1.94 1.75.913-.049 1.637-.773 1.686-1.686a2.235 2.235 0 0 1 2.128-2.128c.913-.049 1.637-.773 1.686-1.686-.05-1-.85-1.95-1.85-1.95a2 2 0 0 1 0-4c1 0 1.8-1.05 1.85-2.05z"/></svg>
+                <span style="display: inline-flex; align-items: center; gap: 5px;">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="8" height="8" x="3" y="3" rx="2"/><path d="M7 11v4a2 2 0 0 0 2 2h4"/></svg>
                   ${blockCount} blocks
                 </span>
               </div>
             </div>
             <div class="project-card-actions">
-              <a href="editor.html?id=${p.id}" class="btn-open-editor">Open Block Studio →</a>
-              <div style="display: flex; gap: 4px;">
-                <button class="btn btn-secondary btn-sm" data-action="rename" title="Rename App" style="border-radius: 9999px; width: 32px; height: 32px; padding: 0; display: inline-flex; align-items: center; justify-content: center;">
+              <a href="editor.html?id=${p.id}" class="btn-open-editor">Open Studio →</a>
+              <div style="display: flex; gap: 6px;">
+                <button class="btn-card-action" data-action="rename" title="Rename App">
                   <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/><path d="m15 5 4 4"/></svg>
                 </button>
-                <button class="btn btn-secondary btn-sm" data-action="duplicate" title="Duplicate App" style="border-radius: 9999px; width: 32px; height: 32px; padding: 0; display: inline-flex; align-items: center; justify-content: center;">
+                <button class="btn-card-action" data-action="duplicate" title="Duplicate App">
                   <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
                 </button>
-                <button class="btn btn-secondary btn-sm" data-action="export-json" title="Download JSON Backup" style="border-radius: 9999px; width: 32px; height: 32px; padding: 0; display: inline-flex; align-items: center; justify-content: center;">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+                <button class="btn-card-action" data-action="export-json" title="Download JSON Backup">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
                 </button>
-                <button class="btn btn-secondary btn-sm" data-action="delete" title="Delete App" style="border-radius: 9999px; width: 32px; height: 32px; padding: 0; color: var(--color-danger); display: inline-flex; align-items: center; justify-content: center;">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><line x1="10" x2="10" y1="11" y2="17"/><line x1="14" x2="14" y1="11" y2="17"/></svg>
+                <button class="btn-card-action btn-card-action-danger" data-action="delete" title="Delete App">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/></svg>
                 </button>
               </div>
             </div>

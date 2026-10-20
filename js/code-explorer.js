@@ -181,18 +181,27 @@
      * Dart syntax colorizer
      */
     colorizeDartSyntax(line) {
+      if (!line) return '';
       let escaped = window.BubbleUtils.escapeHtml(line);
 
       // Comments
       if (escaped.trim().startsWith('//')) {
-        return `<span style="color: #64748b; font-style: italic;">${escaped}</span>`;
+        return `<span class="dart-comment">${escaped}</span>`;
       }
 
-      return escaped
-        .replace(/\b(import|class|extends|void|main|runApp|override|const|final|return|if|else|for|int|String|double|bool|super|setState)\b/g, '<span style="color: #c084fc; font-weight: 600;">$1</span>')
-        .replace(/\b(Widget|BuildContext|StatelessWidget|StatefulWidget|State|MaterialApp|Scaffold|AppBar|Text|TextStyle|ElevatedButton|Container|Column|Row|SingleChildScrollView|BoxDecoration|BorderRadius|EdgeInsets|Color|Colors|Icon|Icons|ClipRRect|Image|TextField|InputDecoration|OutlineInputBorder|ListView|SnackBar|ScaffoldMessenger|ThemeData|Theme|ColorScheme)\b/g, '<span style="color: #38bdf8; font-weight: 600;">$1</span>')
-        .replace(/(&quot;.*?&quot;|&#039;.*?&#039;)/g, '<span style="color: #a7f3d0;">$1</span>')
-        .replace(/\b(0x[0-9a-fA-F]+|\d+)\b/g, '<span style="color: #fbbf24;">$1</span>');
+      // Strings
+      escaped = escaped.replace(/(&quot;.*?&quot;|&#039;.*?&#039;)/g, '<span class="dart-str">$1</span>');
+
+      // Keywords
+      escaped = escaped.replace(/\b(import|class|extends|void|main|runApp|override|const|final|return|if|else|for|int|String|double|bool|super|setState)\b/g, '<span class="dart-kw">$1</span>');
+
+      // Types
+      escaped = escaped.replace(/\b(Widget|BuildContext|StatelessWidget|StatefulWidget|State|MaterialApp|Scaffold|AppBar|Text|TextStyle|ElevatedButton|Container|Column|Row|SingleChildScrollView|BoxDecoration|BorderRadius|EdgeInsets|Color|Colors|Icon|Icons|ClipRRect|Image|TextField|InputDecoration|OutlineInputBorder|ListView|SnackBar|ScaffoldMessenger|ThemeData|Theme|ColorScheme)\b/g, '<span class="dart-type">$1</span>');
+
+      // Numbers & Hex Colors
+      escaped = escaped.replace(/(?<!<[^>]*)\b(0x[0-9a-fA-F]+|\d+)\b(?![^<]*>)/g, '<span class="dart-num">$1</span>');
+
+      return escaped;
     }
   }
 

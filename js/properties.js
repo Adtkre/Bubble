@@ -13,13 +13,33 @@
       this.selectedBlock = null;
     }
 
-    setSelected(block) {
+    setSelected(block, force = false) {
+      if (!force && this.selectedBlock && block && this.selectedBlock.id === block.id) {
+        const activeEl = document.activeElement;
+        if (this.container && this.container.contains(activeEl)) {
+          this.selectedBlock = block;
+          return;
+        }
+      }
       this.selectedBlock = block;
       this.render();
     }
 
     render() {
       if (!this.container) return;
+
+      // Preserve active input focus and cursor position
+      const activeEl = document.activeElement;
+      let focusedField = null;
+      let cursorStart = null;
+      let cursorEnd = null;
+      if (this.container.contains(activeEl) && activeEl.getAttribute) {
+        focusedField = activeEl.getAttribute('data-field');
+        if (activeEl.selectionStart !== undefined) {
+          cursorStart = activeEl.selectionStart;
+          cursorEnd = activeEl.selectionEnd;
+        }
+      }
 
       if (!this.selectedBlock) {
         this.container.innerHTML = `
@@ -146,6 +166,19 @@
       const delBtn = this.container.querySelector('#btn-prop-del');
       if (delBtn) {
         delBtn.onclick = () => this.editor.deleteBlock(block.id);
+      }
+
+      // Restore active input focus and cursor position if previously focused
+      if (focusedField) {
+        const inputToRestore = this.container.querySelector(`[data-field="${focusedField}"]`);
+        if (inputToRestore) {
+          inputToRestore.focus();
+          if (cursorStart !== null && inputToRestore.setSelectionRange) {
+            try {
+              inputToRestore.setSelectionRange(cursorStart, cursorEnd);
+            } catch (_) {}
+          }
+        }
       }
     }
   }

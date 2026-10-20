@@ -30,22 +30,22 @@
 
   <!-- Top Navigation -->
   <header class="dashboard-nav">
-    <div style="display: flex; align-items: center; gap: 20px;">
+    <div style="display: flex; align-items: center; gap: 16px;">
       <a href="index.html" class="brand-wrapper" title="Bubble Home">
-        <span class="brand-logo-icon">B</span>
+        <span class="retro-brand-icon">❖</span>
         <span class="brand-text">BUBBLE</span>
       </a>
-      <span class="badge" style="background-color: #ede7dc; color: #525c56; font-weight: 700; border-radius: 9999px; padding: 4px 10px;">Flutter & Dart Studio</span>
+      <span class="badge-studio">Flutter & Dart Studio</span>
     </div>
 
     <div class="dashboard-nav-actions">
       <a href="index.html" class="btn-nav-home">← Home</a>
       <input type="file" id="import-file-input" accept=".json" style="display: none;" />
-      <button class="btn-dash-import" id="btn-import-project" title="Import an App Project JSON" style="display: inline-flex; align-items: center; gap: 6px;">
+      <button class="btn-dash-import" id="btn-import-project" title="Import an App Project JSON">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
         <span>Import JSON</span>
       </button>
-      <button class="btn-dash-new-app" id="btn-new-project" style="display: inline-flex; align-items: center; gap: 6px;">
+      <button class="btn-dash-new-app" id="btn-new-project">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" x2="12" y1="5" y2="19"/><line x1="5" x2="19" y1="12" y2="12"/></svg>
         <span>New Flutter App</span>
       </button>
@@ -59,6 +59,7 @@
     <!-- Hero Banner in Forest Green Matching Landing Page -->
     <section class="dashboard-hero">
       <div class="hero-text">
+        <div class="retro-hero-tag"><span class="orange-slash">/</span> STUDIO CONSOLE</div>
         <h1>Build Flutter Apps with Blocks</h1>
         <p>Design real mobile apps by connecting visual logic and UI widget blocks. As you snap blocks together, Bubble live-simulates your phone screen and generates standard, clean <strong>Dart</strong> code.</p>
       </div>
@@ -78,11 +79,10 @@
     <section class="templates-section">
       <div class="section-header">
         <h2 class="section-title">
-          <span style="display: inline-flex; align-items: center; gap: 6px;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-            Guided Starter Apps & Tutorials
-          </span>
+          <span class="section-title-icon">⚡</span>
+          <span>Guided Starter Apps & Tutorials</span>
         </h2>
+        <span class="section-tag-pill">6 Templates</span>
       </div>
       <div class="templates-grid" id="templates-container">
         <!-- Rendered dynamically by dashboard.js -->
@@ -93,21 +93,19 @@
     <section class="projects-section">
       <div class="projects-toolbar">
         <h2 class="section-title">
-          <span style="display: inline-flex; align-items: center; gap: 6px;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>
-            Your Flutter Mobile Apps
-          </span>
+          <span class="section-title-icon">❖</span>
+          <span>Your Flutter Mobile Apps</span>
         </h2>
         <div class="search-input-wrapper">
           <span class="search-icon">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" x2="16.65" y1="21" y2="16.65"/></svg>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" x2="16.65" y1="21" y2="16.65"/></svg>
           </span>
           <input type="text" id="search-projects-input" placeholder="Search saved apps..." />
         </div>
       </div>
 
       <!-- Apps Grid -->
-      <div class="projects-grid" id="projects-grid" style="margin-top: 24px;">
+      <div class="projects-grid" id="projects-grid">
         <!-- Rendered dynamically by dashboard.js -->
       </div>
 
