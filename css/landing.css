@@ -919,7 +919,7 @@ html, body.landing-body {
 }
 
 .phone-tap-btn {
-  background-color: #6366f1;
+  background-color: #ea580c;
   color: #ffffff;
   border: none;
   padding: 8px 20px;
@@ -927,7 +927,7 @@ html, body.landing-body {
   font-size: 12px;
   font-weight: 600;
   cursor: pointer;
-  box-shadow: 0 4px 10px rgba(99, 102, 241, 0.3);
+  box-shadow: 0 4px 10px rgba(234, 88, 12, 0.35);
   transition: transform 0.1s ease;
 }
 

@@ -696,8 +696,8 @@
       ctx.scale(pulse, pulse);
 
       // Button shadow & background
-      ctx.fillStyle = '#4f46e5';
-      ctx.shadowColor = 'rgba(79, 70, 229, 0.45)';
+      ctx.fillStyle = '#ea580c';
+      ctx.shadowColor = 'rgba(234, 88, 12, 0.45)';
       ctx.shadowBlur = 12;
       ctx.beginPath();
       ctx.roundRect(-54, -15, 108, 30, 15);

@@ -138,10 +138,8 @@
             <button class="auth-modal-close" id="btn-close-auth-modal" aria-label="Close modal">&times;</button>
             
             <div class="auth-modal-header">
-              <div class="auth-brand-badge" style="display: inline-flex; align-items: center; gap: 6px;">
-                <span class="auth-brand-logo" style="display: flex; align-items: center;">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9 8.5a4 4 0 0 1 4-1"/><circle cx="16" cy="15" r="1.5"/></svg>
-                </span>
+              <div class="auth-brand-badge">
+                <span class="auth-brand-icon">❖</span>
                 <span>BUBBLE</span>
               </div>
               <h2 id="auth-modal-title">Welcome to Bubble</h2>
@@ -240,7 +238,7 @@
       tabLogin.addEventListener('click', () => {
         tabLogin.classList.add('active');
         tabSignup.classList.remove('active');
-        formLogin.style.display = 'block';
+        formLogin.style.display = 'flex';
         formSignup.style.display = 'none';
         hideAlert();
       });
@@ -248,7 +246,7 @@
       tabSignup.addEventListener('click', () => {
         tabSignup.classList.add('active');
         tabLogin.classList.remove('active');
-        formSignup.style.display = 'block';
+        formSignup.style.display = 'flex';
         formLogin.style.display = 'none';
         hideAlert();
       });
@@ -322,12 +320,12 @@
       if (tab === 'signup') {
         tabSignup.classList.add('active');
         tabLogin.classList.remove('active');
-        formSignup.style.display = 'block';
+        formSignup.style.display = 'flex';
         formLogin.style.display = 'none';
       } else {
         tabLogin.classList.add('active');
         tabSignup.classList.remove('active');
-        formLogin.style.display = 'block';
+        formLogin.style.display = 'flex';
         formSignup.style.display = 'none';
       }
 
